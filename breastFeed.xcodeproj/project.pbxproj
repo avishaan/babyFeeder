@@ -13,6 +13,14 @@
 		8266FA731B70B2F50043365F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8266FA721B70B2F50043365F /* Images.xcassets */; };
 		8266FA761B70B2F50043365F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8266FA741B70B2F50043365F /* LaunchScreen.xib */; };
 		8266FA821B70B2F50043365F /* breastFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8266FA811B70B2F50043365F /* breastFeedTests.swift */; };
+		8266FA951B70B3D50043365F /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8266FA941B70B3D50043365F /* InterfaceController.swift */; };
+		8266FA971B70B3D50043365F /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8266FA961B70B3D50043365F /* NotificationController.swift */; };
+		8266FA991B70B3D50043365F /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8266FA981B70B3D50043365F /* GlanceController.swift */; };
+		8266FA9B1B70B3D50043365F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8266FA9A1B70B3D50043365F /* Images.xcassets */; };
+		8266FA9F1B70B3D60043365F /* breastFeed WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 8266FA9E1B70B3D60043365F /* breastFeed WatchKit App.app */; };
+		8266FAA71B70B3D60043365F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8266FAA51B70B3D60043365F /* Interface.storyboard */; };
+		8266FAA91B70B3D60043365F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8266FAA81B70B3D60043365F /* Images.xcassets */; };
+		8266FAAC1B70B3D60043365F /* breastFeed WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8266FA8F1B70B3D50043365F /* breastFeed WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +31,35 @@
 			remoteGlobalIDString = 8266FA651B70B2F50043365F;
 			remoteInfo = breastFeed;
 		};
+		8266FAA01B70B3D60043365F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8266FA5E1B70B2F50043365F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8266FA9D1B70B3D60043365F;
+			remoteInfo = "breastFeed WatchKit App";
+		};
+		8266FAAA1B70B3D60043365F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8266FA5E1B70B2F50043365F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8266FA8E1B70B3D50043365F;
+			remoteInfo = "breastFeed WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8266FAB31B70B3D60043365F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8266FAAC1B70B3D60043365F /* breastFeed WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8266FA661B70B2F50043365F /* breastFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breastFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +72,17 @@
 		8266FA7B1B70B2F50043365F /* breastFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = breastFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8266FA801B70B2F50043365F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8266FA811B70B2F50043365F /* breastFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breastFeedTests.swift; sourceTree = "<group>"; };
+		8266FA8F1B70B3D50043365F /* breastFeed WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "breastFeed WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8266FA921B70B3D50043365F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8266FA931B70B3D50043365F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		8266FA941B70B3D50043365F /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		8266FA961B70B3D50043365F /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		8266FA981B70B3D50043365F /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		8266FA9A1B70B3D50043365F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8266FA9E1B70B3D60043365F /* breastFeed WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "breastFeed WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8266FAA41B70B3D60043365F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8266FAA61B70B3D60043365F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		8266FAA81B70B3D60043365F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +100,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8266FA8C1B70B3D50043365F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -61,6 +115,8 @@
 			children = (
 				8266FA681B70B2F50043365F /* breastFeed */,
 				8266FA7E1B70B2F50043365F /* breastFeedTests */,
+				8266FA901B70B3D50043365F /* breastFeed WatchKit Extension */,
+				8266FAA21B70B3D60043365F /* breastFeed WatchKit App */,
 				8266FA671B70B2F50043365F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +126,8 @@
 			children = (
 				8266FA661B70B2F50043365F /* breastFeed.app */,
 				8266FA7B1B70B2F50043365F /* breastFeedTests.xctest */,
+				8266FA8F1B70B3D50043365F /* breastFeed WatchKit Extension.appex */,
+				8266FA9E1B70B3D60043365F /* breastFeed WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +170,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8266FA901B70B3D50043365F /* breastFeed WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8266FA941B70B3D50043365F /* InterfaceController.swift */,
+				8266FA961B70B3D50043365F /* NotificationController.swift */,
+				8266FA981B70B3D50043365F /* GlanceController.swift */,
+				8266FA9A1B70B3D50043365F /* Images.xcassets */,
+				8266FA911B70B3D50043365F /* Supporting Files */,
+			);
+			path = "breastFeed WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		8266FA911B70B3D50043365F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8266FA921B70B3D50043365F /* Info.plist */,
+				8266FA931B70B3D50043365F /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8266FAA21B70B3D60043365F /* breastFeed WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				8266FAA51B70B3D60043365F /* Interface.storyboard */,
+				8266FAA81B70B3D60043365F /* Images.xcassets */,
+				8266FAA31B70B3D60043365F /* Supporting Files */,
+			);
+			path = "breastFeed WatchKit App";
+			sourceTree = "<group>";
+		};
+		8266FAA31B70B3D60043365F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8266FAA41B70B3D60043365F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,10 +219,12 @@
 				8266FA621B70B2F50043365F /* Sources */,
 				8266FA631B70B2F50043365F /* Frameworks */,
 				8266FA641B70B2F50043365F /* Resources */,
+				8266FAB31B70B3D60043365F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8266FAAB1B70B3D60043365F /* PBXTargetDependency */,
 			);
 			name = breastFeed;
 			productName = breastFeed;
@@ -150,6 +249,39 @@
 			productReference = 8266FA7B1B70B2F50043365F /* breastFeedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8266FA8E1B70B3D50043365F /* breastFeed WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8266FAB01B70B3D60043365F /* Build configuration list for PBXNativeTarget "breastFeed WatchKit Extension" */;
+			buildPhases = (
+				8266FA8B1B70B3D50043365F /* Sources */,
+				8266FA8C1B70B3D50043365F /* Frameworks */,
+				8266FA8D1B70B3D50043365F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8266FAA11B70B3D60043365F /* PBXTargetDependency */,
+			);
+			name = "breastFeed WatchKit Extension";
+			productName = "breastFeed WatchKit Extension";
+			productReference = 8266FA8F1B70B3D50043365F /* breastFeed WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		8266FA9D1B70B3D60043365F /* breastFeed WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8266FAAD1B70B3D60043365F /* Build configuration list for PBXNativeTarget "breastFeed WatchKit App" */;
+			buildPhases = (
+				8266FA9C1B70B3D60043365F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "breastFeed WatchKit App";
+			productName = "breastFeed WatchKit App";
+			productReference = 8266FA9E1B70B3D60043365F /* breastFeed WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,6 +297,12 @@
 					8266FA7A1B70B2F50043365F = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 8266FA651B70B2F50043365F;
+					};
+					8266FA8E1B70B3D50043365F = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					8266FA9D1B70B3D60043365F = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -183,6 +321,8 @@
 			targets = (
 				8266FA651B70B2F50043365F /* breastFeed */,
 				8266FA7A1B70B2F50043365F /* breastFeedTests */,
+				8266FA8E1B70B3D50043365F /* breastFeed WatchKit Extension */,
+				8266FA9D1B70B3D60043365F /* breastFeed WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +342,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8266FA8D1B70B3D50043365F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8266FA9B1B70B3D50043365F /* Images.xcassets in Resources */,
+				8266FA9F1B70B3D60043365F /* breastFeed WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8266FA9C1B70B3D60043365F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8266FAA71B70B3D60043365F /* Interface.storyboard in Resources */,
+				8266FAA91B70B3D60043365F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +383,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8266FA8B1B70B3D50043365F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8266FA971B70B3D50043365F /* NotificationController.swift in Sources */,
+				8266FA951B70B3D50043365F /* InterfaceController.swift in Sources */,
+				8266FA991B70B3D50043365F /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +400,16 @@
 			isa = PBXTargetDependency;
 			target = 8266FA651B70B2F50043365F /* breastFeed */;
 			targetProxy = 8266FA7C1B70B2F50043365F /* PBXContainerItemProxy */;
+		};
+		8266FAA11B70B3D60043365F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8266FA9D1B70B3D60043365F /* breastFeed WatchKit App */;
+			targetProxy = 8266FAA01B70B3D60043365F /* PBXContainerItemProxy */;
+		};
+		8266FAAB1B70B3D60043365F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8266FA8E1B70B3D50043365F /* breastFeed WatchKit Extension */;
+			targetProxy = 8266FAAA1B70B3D60043365F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -250,6 +428,14 @@
 				8266FA751B70B2F50043365F /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		8266FAA51B70B3D60043365F /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8266FAA61B70B3D60043365F /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -390,6 +576,62 @@
 			};
 			name = Release;
 		};
+		8266FAAE1B70B3D60043365F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = breastFeed_WatchKit_Extension;
+				INFOPLIST_FILE = "breastFeed WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		8266FAAF1B70B3D60043365F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = breastFeed_WatchKit_Extension;
+				INFOPLIST_FILE = "breastFeed WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		8266FAB11B70B3D60043365F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "breastFeed WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8266FAB21B70B3D60043365F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "breastFeed WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -415,6 +657,22 @@
 			buildConfigurations = (
 				8266FA891B70B2F50043365F /* Debug */,
 				8266FA8A1B70B2F50043365F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8266FAAD1B70B3D60043365F /* Build configuration list for PBXNativeTarget "breastFeed WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8266FAAE1B70B3D60043365F /* Debug */,
+				8266FAAF1B70B3D60043365F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8266FAB01B70B3D60043365F /* Build configuration list for PBXNativeTarget "breastFeed WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8266FAB11B70B3D60043365F /* Debug */,
+				8266FAB21B70B3D60043365F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
