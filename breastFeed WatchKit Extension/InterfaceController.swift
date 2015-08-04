@@ -42,12 +42,11 @@ class InterfaceController: WKInterfaceController {
       buttonState.left = false
       leftButton.setBackgroundColor(UIColor.clearColor())
     }
-    
     // is this, the right button, on?
     if buttonState.right {
       // if right button is enabled, disable
       buttonState.right = false
-      rightButton.setBackgroundColor(UIColor.blackColor())
+      rightButton.setBackgroundColor(UIColor.clearColor())
     } else {
       // if right button is disabled, enable
       buttonState.right = true
@@ -57,7 +56,21 @@ class InterfaceController: WKInterfaceController {
   }
   
   @IBAction func onLeftButtonTap() {
-    
-    
+    // check the right button
+    if buttonState.right {
+      // if its on, turn it off
+      buttonState.right = false
+      rightButton.setBackgroundColor(UIColor.clearColor())
+    }
+    // check this, left button if it's on
+    if buttonState.left {
+      // disable left button
+      buttonState.left = false
+      leftButton.setBackgroundColor(UIColor.clearColor())
+    } else {
+      // enable left button
+      buttonState.left = true
+      leftButton.setBackgroundColor(UIColor.greenColor())
+    }
   }
 }
