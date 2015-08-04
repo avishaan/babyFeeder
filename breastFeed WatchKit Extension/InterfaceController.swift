@@ -53,6 +53,8 @@ class InterfaceController: WKInterfaceController {
       rightButton.setBackgroundColor(UIColor.greenColor())
       
     }
+    // make sure the correct timers are on
+    self.startTimers(buttonState)
   }
   
   @IBAction func onLeftButtonTap() {
@@ -71,6 +73,25 @@ class InterfaceController: WKInterfaceController {
       // enable left button
       buttonState.left = true
       leftButton.setBackgroundColor(UIColor.greenColor())
+    }
+    // make sure the correct timers are on
+    self.startTimers(buttonState)
+  }
+  
+  func startTimers(buttonState: (left: Bool, right: Bool)) {
+    // check left button state
+    if buttonState.left {
+      // start timer
+      leftTimer.start()
+    } else {
+      leftTimer.stop()
+    }
+    // check right button state
+    if buttonState.right {
+      // start timer
+      rightTimer.start()
+    } else {
+      rightTimer.stop()
     }
   }
 }
