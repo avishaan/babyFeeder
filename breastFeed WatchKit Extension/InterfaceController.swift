@@ -20,13 +20,6 @@ class InterfaceController: WKInterfaceController {
   
   var leftTimer:Timer = Timer()
   var rightTimer:Timer = Timer()
-  
-  // keep track of how much time has elapsed on each
-  var timeElapsed:(left: Double, right: Double) = (0.0, 0.0)
-  
-  // keep track of the date when the timer was started so we know the elapsed time
-  var timeStarted:(left: NSDate, right: NSDate)?
-  
   // keep track of which button is active
   var buttonState = (left: false, right: false)
   
@@ -68,8 +61,6 @@ class InterfaceController: WKInterfaceController {
       // update the timer interface and model
       startTimer(rightTimerInterface, timer: rightTimer)
     }
-    // make sure the correct timers are on
-//    self.startTimers(buttonState)
   }
   
   @IBAction func onLeftButtonTap() {
@@ -92,8 +83,6 @@ class InterfaceController: WKInterfaceController {
       leftButton.setBackgroundColor(UIColor.greenColor())
       startTimer(leftTimerInterface, timer: leftTimer)
     }
-    // make sure the correct timers are on
-//    self.startTimers(buttonState)
   }
   
   func startTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
@@ -110,32 +99,5 @@ class InterfaceController: WKInterfaceController {
     timerInterface.stop()
     // pause the timer model counting
     timer.stop()
-  }
-  
-  func startTimers(buttonState: (left: Bool, right: Bool)) {
-    // check left button state
-    if buttonState.left {
-      // update the timerInterface with the correct date
-      leftTimerInterface.setDate(leftTimer.date)
-      leftTimer.start()
-      // start timer
-      leftTimerInterface.start()
-    } else {
-      // stop timer
-      leftTimer.stop()
-      leftTimerInterface.stop()
-    }
-    // check right button state
-    if buttonState.right {
-      // set the correct time on the interface
-      rightTimerInterface.setDate(rightTimer.date)
-      rightTimer.start()
-      // start timer
-      rightTimerInterface.start()
-    } else {
-      // stop timer
-      rightTimer.stop()
-      rightTimerInterface.stop()
-    }
   }
 }
