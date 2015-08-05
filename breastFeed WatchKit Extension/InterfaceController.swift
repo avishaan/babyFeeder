@@ -18,7 +18,7 @@ class InterfaceController: WKInterfaceController {
   @IBOutlet weak var leftButton: WKInterfaceButton!
   @IBOutlet weak var rightButton: WKInterfaceButton!
   
-  var leftTimer:NSDate?
+  var leftTimer:Timer = Timer()
   var rightTimer:NSDate?
   
   // keep track of how much time has elapsed on each
@@ -91,20 +91,24 @@ class InterfaceController: WKInterfaceController {
   func startTimers(buttonState: (left: Bool, right: Bool)) {
     // check left button state
     if buttonState.left {
+      // update the timerInterface with the correct date
+      leftTimerInterface.setDate(leftTimer.date)
+      leftTimer.start()
       // start timer
       leftTimerInterface.start()
     } else {
       // stop timer
+      leftTimer.stop()
       leftTimerInterface.stop()
     }
     // check right button state
     if buttonState.right {
       // set the correct time
-      setTimerInterfaceBeforeStart(rightTimerInterface, timeElapsed: timeElapsed.right)
+//      setTimerInterfaceBeforeStart(rightTimerInterface, timeElapsed: timeElapsed.right)
       // start timer
       rightTimerInterface.start()
     } else {
-      saveElapsedTimeBeforeStop(rightTimerInterface)
+//      saveElapsedTimeBeforeStop(rightTimerInterface)
       // stop timer
       rightTimerInterface.stop()
     }
