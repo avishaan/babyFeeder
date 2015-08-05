@@ -46,25 +46,30 @@ class InterfaceController: WKInterfaceController {
     super.didDeactivate()
   }
   @IBAction func onRightButtonTap() {
-    // is the left button on
+  
+    // check on the left button
     if buttonState.left {
       // no matter what, disable the left button if it is enabled
       buttonState.left = false
       leftButton.setBackgroundColor(UIColor.clearColor())
+      stopTimer(leftTimerInterface, timer: leftTimer)
     }
-    // is this, the right button, on?
+    // update the right button based on it's current state
     if buttonState.right {
-      // if right button is enabled, disable
+      // if right button is enabled, disable and stop timer
       buttonState.right = false
       rightButton.setBackgroundColor(UIColor.clearColor())
+      // update the timer interface and model
+      stopTimer(rightTimerInterface, timer: rightTimer)
     } else {
-      // if right button is disabled, enable
+      // if right button is disabled, enable and start timer
       buttonState.right = true
       rightButton.setBackgroundColor(UIColor.greenColor())
-      
+      // update the timer interface and model
+      startTimer(rightTimerInterface, timer: rightTimer)
     }
     // make sure the correct timers are on
-    self.startTimers(buttonState)
+//    self.startTimers(buttonState)
   }
   
   @IBAction func onLeftButtonTap() {
@@ -73,19 +78,38 @@ class InterfaceController: WKInterfaceController {
       // if its on, turn it off
       buttonState.right = false
       rightButton.setBackgroundColor(UIColor.clearColor())
+      stopTimer(rightTimerInterface, timer: rightTimer)
     }
     // check this, left button if it's on
     if buttonState.left {
       // disable left button
       buttonState.left = false
       leftButton.setBackgroundColor(UIColor.clearColor())
+      stopTimer(leftTimerInterface, timer: leftTimer)
     } else {
       // enable left button
       buttonState.left = true
       leftButton.setBackgroundColor(UIColor.greenColor())
+      startTimer(leftTimerInterface, timer: leftTimer)
     }
     // make sure the correct timers are on
-    self.startTimers(buttonState)
+//    self.startTimers(buttonState)
+  }
+  
+  func startTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
+    // make sure the timer interface has the right info on it
+    timerInterface.setDate(timer.date)
+    // start the timer interface counting
+    timerInterface.start()
+    // start the timer model counting
+    timer.start()
+  }
+  
+  func stopTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
+    // pause the timer label
+    timerInterface.stop()
+    // pause the timer model counting
+    timer.stop()
   }
   
   func startTimers(buttonState: (left: Bool, right: Bool)) {
