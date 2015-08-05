@@ -11,6 +11,7 @@ import Foundation
 class Timer {
   var timeElapsed: Double!
   var lastStart: NSDate!
+  var on: Bool!
   
   var date: NSDate {
     get {
@@ -22,6 +23,8 @@ class Timer {
   
   init() {
     timeElapsed = 0
+    // assume button is off
+    on = false
   }
   
   private func incrementTimer(seconds: Double) {
@@ -36,15 +39,18 @@ class Timer {
   func start() {
     // keep track of when the timer started
     lastStart = NSDate()
+    on = true
   }
   
   // see how much time has elapsed so far and save it
   func stop() {
-    // see how many seconds have passed from when the timer started and now
-    let timeElapsedLastSinceStart = NSDate().timeIntervalSinceDate(lastStart)
-    // increment the timer by this amount
-    incrementTimer(timeElapsedLastSinceStart)
-    
+    // only stop if it was just now on
+    if on! {
+      // see how many seconds have passed from when the timer started and now
+      let timeElapsedLastSinceStart = NSDate().timeIntervalSinceDate(lastStart)
+      // increment the timer by this amount
+      incrementTimer(timeElapsedLastSinceStart)
+    }
   }
   
 }

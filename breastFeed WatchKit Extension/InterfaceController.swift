@@ -19,7 +19,7 @@ class InterfaceController: WKInterfaceController {
   @IBOutlet weak var rightButton: WKInterfaceButton!
   
   var leftTimer:Timer = Timer()
-  var rightTimer:NSDate?
+  var rightTimer:Timer = Timer()
   
   // keep track of how much time has elapsed on each
   var timeElapsed:(left: Double, right: Double) = (0.0, 0.0)
@@ -103,31 +103,15 @@ class InterfaceController: WKInterfaceController {
     }
     // check right button state
     if buttonState.right {
-      // set the correct time
-//      setTimerInterfaceBeforeStart(rightTimerInterface, timeElapsed: timeElapsed.right)
+      // set the correct time on the interface
+      rightTimerInterface.setDate(rightTimer.date)
+      rightTimer.start()
       // start timer
       rightTimerInterface.start()
     } else {
-//      saveElapsedTimeBeforeStop(rightTimerInterface)
       // stop timer
+      rightTimer.stop()
       rightTimerInterface.stop()
     }
-  }
-  func setTimerInterfaceBeforeStart(timer: WKInterfaceTimer, timeElapsed: Double) {
-    // get current date
-    let now = NSDate()
-    let future = now.dateByAddingTimeInterval(-timeElapsed)
-    println("Time elapsed: \(timeElapsed)")
-    // keep the future date for when we stop the watch
-    timeStarted = (now, future)
-    // add the offset from last time the timer was started
-    timer.setDate(future)
-  }
-  
-  func saveElapsedTimeBeforeStop(timer: WKInterfaceTimer) {
-    // get the current date and subtract it from the date shown on the label
-    let now = NSDate()
-    // save that
-    timeElapsed.right = now.timeIntervalSinceDate(timeStarted!.right)
   }
 }
