@@ -33,6 +33,11 @@
                                 <timer alignment="right" id="KEf-YO-gzV"/>
                             </items>
                         </group>
+                        <button width="1" alignment="left" title="New Day" id="tz2-hF-bsE">
+                            <connections>
+                                <action selector="onNewButtonTap" destination="AgC-eL-Hgc" id="Mkx-o6-M2o"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="leftButton" destination="oel-1K-LPj" id="BJJ-0U-Kgt"/>

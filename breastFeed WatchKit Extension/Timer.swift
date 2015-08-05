@@ -53,4 +53,9 @@ class Timer {
     }
   }
   
+  func reset() {
+    timeElapsed = 0
+    on = false
+  }
+  
 }

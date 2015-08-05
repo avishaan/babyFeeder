@@ -86,6 +86,26 @@ class InterfaceController: WKInterfaceController {
       startTimer(leftTimerInterface, timer: leftTimer)
     }
   }
+  @IBAction func onNewButtonTap() {
+    // reset data in the timer models
+    rightTimer.reset()
+    leftTimer.reset()
+    
+    // reset the timerInterface
+    rightTimerInterface.stop()
+    rightTimerInterface.setDate(NSDate())
+    
+    leftTimerInterface.stop()
+    leftTimerInterface.setDate(NSDate())
+    
+    // reset the button colors
+    rightButton.setBackgroundColor(UIColor.darkGrayColor())
+    leftButton.setBackgroundColor(UIColor.darkGrayColor())
+    
+    // reset the button state
+    buttonState = (false, false)
+    
+  }
   
   func startTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
     // make sure the timer interface has the right info on it
