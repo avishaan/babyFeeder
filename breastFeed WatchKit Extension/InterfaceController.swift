@@ -39,25 +39,26 @@ class InterfaceController: WKInterfaceController {
     super.didDeactivate()
   }
   @IBAction func onRightButtonTap() {
-  
     // check on the left button
     if buttonState.left {
       // no matter what, disable the left button if it is enabled
       buttonState.left = false
-      leftButton.setBackgroundColor(UIColor.clearColor())
+      leftButton.setBackgroundColor(UIColor.darkGrayColor())
       stopTimer(leftTimerInterface, timer: leftTimer)
     }
     // update the right button based on it's current state
     if buttonState.right {
-      // if right button is enabled, disable and stop timer
+      // if right button is enabled, disable and stop timer and set as last button
       buttonState.right = false
-      rightButton.setBackgroundColor(UIColor.clearColor())
+      rightButton.setBackgroundColor(UIColor.orangeColor())
       // update the timer interface and model
       stopTimer(rightTimerInterface, timer: rightTimer)
     } else {
-      // if right button is disabled, enable and start timer
+      // if right button is disabled, enable and start timer and remove last button set on the left
       buttonState.right = true
       rightButton.setBackgroundColor(UIColor.greenColor())
+      // the left button may have been the last one but it won't be anymore
+      leftButton.setBackgroundColor(UIColor.darkGrayColor())
       // update the timer interface and model
       startTimer(rightTimerInterface, timer: rightTimer)
     }
@@ -68,19 +69,20 @@ class InterfaceController: WKInterfaceController {
     if buttonState.right {
       // if its on, turn it off
       buttonState.right = false
-      rightButton.setBackgroundColor(UIColor.clearColor())
+      rightButton.setBackgroundColor(UIColor.darkGrayColor())
       stopTimer(rightTimerInterface, timer: rightTimer)
     }
     // check this, left button if it's on
     if buttonState.left {
       // disable left button
       buttonState.left = false
-      leftButton.setBackgroundColor(UIColor.clearColor())
+      leftButton.setBackgroundColor(UIColor.orangeColor())
       stopTimer(leftTimerInterface, timer: leftTimer)
     } else {
       // enable left button
       buttonState.left = true
       leftButton.setBackgroundColor(UIColor.greenColor())
+      rightButton.setBackgroundColor(UIColor.darkGrayColor())
       startTimer(leftTimerInterface, timer: leftTimer)
     }
   }
