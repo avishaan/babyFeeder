@@ -24,6 +24,10 @@ class InterfaceController: WKInterfaceController {
   // keep track of how much time has elapsed on each
   var timeElapsed:(left: Double, right: Double) = (0.0, 0.0)
   
+  // keep track of the date when the timer was started so we know the elapsed time
+  var timeStarted:(left: NSDate, right: NSDate)?
+  
+  // keep track of which button is active
   var buttonState = (left: false, right: false)
   
   override func awakeWithContext(context: AnyObject?) {
@@ -100,15 +104,26 @@ class InterfaceController: WKInterfaceController {
       // start timer
       rightTimerInterface.start()
     } else {
+      saveElapsedTimeBeforeStop(rightTimerInterface)
       // stop timer
       rightTimerInterface.stop()
     }
   }
   func setTimerInterfaceBeforeStart(timer: WKInterfaceTimer, timeElapsed: Double) {
     // get current date
-    let date = NSDate()
-    let future = date.dateByAddingTimeInterval(timeElapsed)
+    let now = NSDate()
+    let future = now.dateByAddingTimeInterval(-timeElapsed)
+    println("Time elapsed: \(timeElapsed)")
+    // keep the future date for when we stop the watch
+    timeStarted = (now, future)
     // add the offset from last time the timer was started
     timer.setDate(future)
+  }
+  
+  func saveElapsedTimeBeforeStop(timer: WKInterfaceTimer) {
+    // get the current date and subtract it from the date shown on the label
+    let now = NSDate()
+    // save that
+    timeElapsed.right = now.timeIntervalSinceDate(timeStarted!.right)
   }
 }
