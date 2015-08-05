@@ -36,9 +36,9 @@
                     </items>
                     <connections>
                         <outlet property="leftButton" destination="oel-1K-LPj" id="BJJ-0U-Kgt"/>
-                        <outlet property="leftTimer" destination="JRb-Pc-vPt" id="wRa-BL-MdC"/>
+                        <outlet property="leftTimerInterface" destination="JRb-Pc-vPt" id="Ubn-Sv-tXU"/>
                         <outlet property="rightButton" destination="cOq-A7-abw" id="ZGU-n2-S9d"/>
-                        <outlet property="rightTimer" destination="KEf-YO-gzV" id="Y1P-lF-dSp"/>
+                        <outlet property="rightTimerInterface" destination="KEf-YO-gzV" id="9cp-eU-sea"/>
                         <outlet property="totalTimer" destination="beO-Za-tLh" id="63H-3q-Wja"/>
                     </connections>
                 </controller>
