@@ -154,15 +154,9 @@ class InterfaceController: WKInterfaceController {
     leftTimerInterface.stop()
     leftTimerInterface.setDate(NSDate())
     
-    // if any button is active that becomes the new passive state button
-    if buttonState.left || buttonState.right {
-      lastButtonState = buttonState
-    } else {
-      // don't do anything because we aren't counting and we want to keep the current passive button state
-    }
-    
     // reset the button state
     buttonState = (false, false)
+    showCurrentButtonState(buttonState)
     
     // update with the last button state since there should be nothing active at this point
     showLastUsedButton(lastButtonState)
