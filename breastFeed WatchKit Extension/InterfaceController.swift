@@ -149,6 +149,11 @@ class InterfaceController: WKInterfaceController {
     dateFormatter.dateFormat = "MMM-dd h:mm a"
     lastFeedDateLabel.setText(dateFormatter.stringFromDate(NSDate()))
     
+    // stop top timer and reset it
+    totalTimer.reset()
+    //reset the timer interface
+    totalTimerInterface.stop()
+    totalTimerInterface.setDate(NSDate())
   }
   
   func showLastUsedButton(lastButtonState:(left:Bool, right:Bool)) {
