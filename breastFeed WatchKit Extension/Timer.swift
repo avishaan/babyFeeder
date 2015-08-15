@@ -50,6 +50,7 @@ class Timer {
       let timeElapsedLastSinceStart = NSDate().timeIntervalSinceDate(lastStart)
       // increment the timer by this amount
       incrementTimer(timeElapsedLastSinceStart)
+      on = false
     }
   }
   

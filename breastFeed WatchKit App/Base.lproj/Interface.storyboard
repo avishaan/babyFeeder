@@ -10,45 +10,54 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="breastFeed_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <timer width="1" alignment="left" textAlignment="center" format="abbreviated" id="beO-Za-tLh">
-                            <calendarUnit key="units" minute="YES" second="YES"/>
-                        </timer>
-                        <group width="1" height="58.5" alignment="left" id="2U8-1f-oCm">
+                        <group width="1" alignment="left" id="Vcz-oU-cfe">
                             <items>
-                                <button width="65" height="1" alignment="left" title="Left" id="oel-1K-LPj">
+                                <label width="39.5" alignment="left" text="Last Feed:" minimumScaleFactor="0.30000000000000016" id="kje-ZP-Ihz"/>
+                                <label width="93.5" alignment="left" text="Label" textAlignment="right" minimumScaleFactor="0.50000000000000011" id="tXe-sR-eWN"/>
+                            </items>
+                        </group>
+                        <group width="1" height="55.5" alignment="left" id="2U8-1f-oCm">
+                            <items>
+                                <button width="65" height="58.5" alignment="left" title="Left" id="oel-1K-LPj">
                                     <connections>
                                         <action selector="onLeftButtonTap" destination="AgC-eL-Hgc" id="dqP-mm-xtr"/>
                                     </connections>
                                 </button>
-                                <button width="68" height="1" alignment="left" title="Right" id="cOq-A7-abw">
+                                <button width="68" height="55.5" alignment="left" title="Right" id="cOq-A7-abw">
                                     <connections>
                                         <action selector="onRightButtonTap" destination="AgC-eL-Hgc" id="dmJ-ze-i7F"/>
                                     </connections>
                                 </button>
                             </items>
                         </group>
-                        <group width="1" alignment="left" id="yUF-Ah-DLn">
+                        <group width="1" alignment="center" id="VOF-Bc-agA">
                             <items>
-                                <timer alignment="left" id="JRb-Pc-vPt"/>
-                                <timer alignment="right" id="KEf-YO-gzV"/>
+                                <timer width="37" alignment="left" minimumScaleFactor="0.20000000000000015" format="abbreviated" id="JRb-Pc-vPt">
+                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                </timer>
+                                <timer width="51" alignment="center" textAlignment="center" minimumScaleFactor="0.50000000000000011" format="abbreviated" id="beO-Za-tLh"/>
+                                <timer alignment="right" minimumScaleFactor="0.20000000000000015" format="abbreviated" id="KEf-YO-gzV">
+                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                </timer>
                             </items>
                         </group>
-                        <button width="1" alignment="left" title="New Day" id="tz2-hF-bsE">
+                        <button width="1" alignment="left" title="Finish Feed" id="tz2-hF-bsE">
                             <connections>
                                 <action selector="onNewButtonTap" destination="AgC-eL-Hgc" id="Mkx-o6-M2o"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
+                        <outlet property="lastFeedDateLabel" destination="tXe-sR-eWN" id="L7n-g9-maj"/>
                         <outlet property="leftButton" destination="oel-1K-LPj" id="BJJ-0U-Kgt"/>
                         <outlet property="leftTimerInterface" destination="JRb-Pc-vPt" id="Ubn-Sv-tXU"/>
                         <outlet property="rightButton" destination="cOq-A7-abw" id="ZGU-n2-S9d"/>
                         <outlet property="rightTimerInterface" destination="KEf-YO-gzV" id="9cp-eU-sea"/>
-                        <outlet property="totalTimer" destination="beO-Za-tLh" id="63H-3q-Wja"/>
+                        <outlet property="totalTimerInterface" destination="beO-Za-tLh" id="7mD-3d-UOO"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="347"/>
+            <point key="canvasLocation" x="235" y="346"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
@@ -56,7 +65,11 @@
                 <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="breastFeed_WatchKit_App" customModuleProvider="target">
                     <items>
                         <group alignment="left" id="t8f-Gd-c4y"/>
-                        <group alignment="left" id="uCw-4Q-Ouw"/>
+                        <group alignment="left" id="uCw-4Q-Ouw">
+                            <items>
+                                <label alignment="left" text="Label" id="WWp-Rb-c6E"/>
+                            </items>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
