@@ -63,7 +63,8 @@ class InterfaceController: WKInterfaceController {
     if buttonState.left {
       // no matter what, disable the left button if it is enabled
       buttonState.left = false
-      leftButton.setBackgroundColor(UIColor.darkGrayColor())
+      // since the left button was just on, set as last button
+      lastButtonState = (true, false)
       stopTimer(leftTimerInterface, timer: leftTimer)
     }
     // update the right button based on it's current state
@@ -79,13 +80,13 @@ class InterfaceController: WKInterfaceController {
     } else {
       // if right button is disabled, enable and start timer and remove last button set on the left
       buttonState.right = true
-      rightButton.setBackgroundColor(UIColor.greenColor())
-      // the left button may have been the last one but it won't be anymore
-      leftButton.setBackgroundColor(UIColor.darkGrayColor())
       // update the timer interface and model
       startTimer(rightTimerInterface, timer: rightTimer)
     }
     
+    // visually update button states
+    showCurrentButtonState(buttonState)
+    showLastUsedButton(lastButtonState)
     // manage the top timer which stays on if either left/right button is in the on state
     // if either button is on, make sure the timer is on
     println("left: \(buttonState.left) right: \(buttonState.right) isTotalOn: \(totalTimer.on!)")
@@ -107,7 +108,8 @@ class InterfaceController: WKInterfaceController {
     if buttonState.right {
       // if its on, turn it off
       buttonState.right = false
-      rightButton.setBackgroundColor(UIColor.darkGrayColor())
+      // set this as the last button
+      lastButtonState = (false, true)
       stopTimer(rightTimerInterface, timer: rightTimer)
     }
     // check this, left button if it's on
@@ -120,10 +122,11 @@ class InterfaceController: WKInterfaceController {
     } else {
       // enable left button
       buttonState.left = true
-      leftButton.setBackgroundColor(UIColor.greenColor())
-      rightButton.setBackgroundColor(UIColor.darkGrayColor())
       startTimer(leftTimerInterface, timer: leftTimer)
     }
+    // visually update button states
+    showCurrentButtonState(buttonState)
+    showLastUsedButton(lastButtonState)
     // manage the top timer which stays on if either left/right button is in the on state
     // if either button is on, make sure the timer is on
     println("left: \(buttonState.left) right: \(buttonState.right) isTotalOn: \(totalTimer.on!)")
@@ -176,12 +179,16 @@ class InterfaceController: WKInterfaceController {
   // func checks the button states and update them with the correct color
   func showCurrentButtonState(buttonState:(left:Bool, right:Bool)) {
     if buttonState.left {
-      leftButton.setBackgroundColor(kActiveStateColor)
+//      leftButton.setBackgroundColor(kActiveStateColor)
+      leftButton.setBackgroundColor(UIColor.clearColor())
+      leftButton.setBackgroundImageNamed("animation")
     } else {
       leftButton.setBackgroundColor(kPassiveStateColor)
     }
     if buttonState.right {
-      rightButton.setBackgroundColor(kActiveStateColor)
+//      rightButton.setBackgroundColor(kActiveStateColor)
+      rightButton.setBackgroundColor(UIColor.clearColor())
+      rightButton.setBackgroundImageNamed("animation")
     } else {
       rightButton.setBackgroundColor(kPassiveStateColor)
     }
@@ -192,12 +199,12 @@ class InterfaceController: WKInterfaceController {
     if lastButtonState.left {
       leftButton.setBackgroundColor(kLastStateColor)
     } else {
-      leftButton.setBackgroundColor(kPassiveStateColor)
+//      leftButton.setBackgroundColor(kPassiveStateColor)
     }
     if lastButtonState.right {
       rightButton.setBackgroundColor(kLastStateColor)
     } else {
-      rightButton.setBackgroundColor(kPassiveStateColor)
+//      rightButton.setBackgroundColor(kPassiveStateColor)
     }
   }
   
