@@ -173,16 +173,16 @@ class InterfaceController: WKInterfaceController {
   // func checks the button states and update them with the correct color
   func showCurrentButtonState(buttonState:(left:Bool, right:Bool)) {
     if buttonState.left {
-//      leftButton.setBackgroundColor(kActiveStateColor)
-      leftButton.setBackgroundColor(UIColor.clearColor())
-      leftButton.setBackgroundImageNamed("animation")
+      leftButton.setBackgroundColor(kActiveStateColor)
+//      leftButton.setBackgroundColor(UIColor.clearColor())
+//      leftButton.setBackgroundImageNamed("animation")
     } else {
       leftButton.setBackgroundColor(kPassiveStateColor)
     }
     if buttonState.right {
-//      rightButton.setBackgroundColor(kActiveStateColor)
-      rightButton.setBackgroundColor(UIColor.clearColor())
-      rightButton.setBackgroundImageNamed("animation")
+      rightButton.setBackgroundColor(kActiveStateColor)
+//      rightButton.setBackgroundColor(UIColor.clearColor())
+//      rightButton.setBackgroundImageNamed("animation")
     } else {
       rightButton.setBackgroundColor(kPassiveStateColor)
     }
