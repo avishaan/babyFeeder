@@ -29,14 +29,13 @@ class InterfaceController: WKInterfaceController {
   override func awakeWithContext(context: AnyObject?) {
     super.awakeWithContext(context)
     
-    // Configure interface objects here.
-    lastButtonState =  self.restoreState()
-    
   }
   
   override func willActivate() {
     // This method is called when watch view controller is about to be visible to user
     super.willActivate()
+    lastButtonState =  self.restoreState()
+    showLastUsedButton(lastButtonState)
   }
   
   override func didDeactivate() {
