@@ -60,6 +60,9 @@ class InterfaceController: WKInterfaceController {
       rightButton.setBackgroundColor(UIColor.orangeColor())
       // update the timer interface and model
       stopTimer(rightTimerInterface, timer: rightTimer)
+      // this button was last pressed, set right button lastButtonState to remember this and set left to false
+      lastButtonState = (true, false)
+      
     } else {
       // if right button is disabled, enable and start timer and remove last button set on the left
       buttonState.right = true
@@ -85,6 +88,8 @@ class InterfaceController: WKInterfaceController {
       buttonState.left = false
       leftButton.setBackgroundColor(UIColor.orangeColor())
       stopTimer(leftTimerInterface, timer: leftTimer)
+      // this button was last pressed, set right button lastButtonState to remember this and set left to false
+      lastButtonState = (false, true)
     } else {
       // enable left button
       buttonState.left = true
@@ -113,6 +118,7 @@ class InterfaceController: WKInterfaceController {
     buttonState = (false, false)
     
   }
+  
   
   func startTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
     // make sure the timer interface has the right info on it
