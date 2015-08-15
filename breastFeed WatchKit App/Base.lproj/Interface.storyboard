@@ -18,12 +18,12 @@
                         </group>
                         <group width="1" height="55.5" alignment="left" id="2U8-1f-oCm">
                             <items>
-                                <button width="65" height="58.5" alignment="left" title="Left" id="oel-1K-LPj">
+                                <button width="66" height="58.5" alignment="left" title="Left" id="oel-1K-LPj">
                                     <connections>
                                         <action selector="onLeftButtonTap" destination="AgC-eL-Hgc" id="dqP-mm-xtr"/>
                                     </connections>
                                 </button>
-                                <button width="68" height="55.5" alignment="left" title="Right" id="cOq-A7-abw">
+                                <button width="66" height="58.5" alignment="left" title="Right" id="cOq-A7-abw">
                                     <connections>
                                         <action selector="onRightButtonTap" destination="AgC-eL-Hgc" id="dmJ-ze-i7F"/>
                                     </connections>
