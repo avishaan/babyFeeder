@@ -655,6 +655,7 @@
 				8266FA871B70B2F50043365F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8266FA881B70B2F50043365F /* Build configuration list for PBXNativeTarget "breastFeedTests" */ = {
 			isa = XCConfigurationList;
@@ -663,6 +664,7 @@
 				8266FA8A1B70B2F50043365F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8266FAAD1B70B3D60043365F /* Build configuration list for PBXNativeTarget "breastFeed WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -671,6 +673,7 @@
 				8266FAAF1B70B3D60043365F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8266FAB01B70B3D60043365F /* Build configuration list for PBXNativeTarget "breastFeed WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -679,6 +682,7 @@
 				8266FAB21B70B3D60043365F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
