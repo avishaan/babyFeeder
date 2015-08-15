@@ -14,12 +14,13 @@ class InterfaceController: WKInterfaceController {
   
   @IBOutlet weak var leftTimerInterface: WKInterfaceTimer!
   @IBOutlet weak var rightTimerInterface: WKInterfaceTimer!
-  @IBOutlet weak var totalTimer: WKInterfaceTimer!
+  @IBOutlet weak var totalTimerInterface: WKInterfaceTimer!
   @IBOutlet weak var leftButton: WKInterfaceButton!
   @IBOutlet weak var rightButton: WKInterfaceButton!
   
   var leftTimer:Timer = Timer()
   var rightTimer:Timer = Timer()
+  var totalTimer:Timer = Timer()
   // keep track of which button is active
   var buttonState = (left: false, right: false)
   var lastButtonState:(left:Bool, right:Bool)!
@@ -71,6 +72,15 @@ class InterfaceController: WKInterfaceController {
       // update the timer interface and model
       startTimer(rightTimerInterface, timer: rightTimer)
     }
+    
+    // manage the top timer which stays on if either left/right button is in the on state
+    // if either button is on, make sure the timer is on
+    if buttonState.left || buttonState.right {
+      startTimer(totalTimerInterface, timer: totalTimer)
+    } else {
+      // if both buttons are off, turn off top timer
+      stopTimer(totalTimerInterface, timer: totalTimer)
+    }
   }
   
   @IBAction func onLeftButtonTap() {
@@ -94,6 +104,14 @@ class InterfaceController: WKInterfaceController {
       leftButton.setBackgroundColor(UIColor.greenColor())
       rightButton.setBackgroundColor(UIColor.darkGrayColor())
       startTimer(leftTimerInterface, timer: leftTimer)
+    }
+    // manage the top timer which stays on if either left/right button is in the on state
+    // if either button is on, make sure the timer is on
+    if buttonState.left || buttonState.right {
+      startTimer(totalTimerInterface, timer: totalTimer)
+    } else {
+      // if both buttons are off, turn off top timer
+      stopTimer(totalTimerInterface, timer: totalTimer)
     }
   }
   @IBAction func onNewButtonTap() {

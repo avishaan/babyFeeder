@@ -44,7 +44,7 @@
                         <outlet property="leftTimerInterface" destination="JRb-Pc-vPt" id="Ubn-Sv-tXU"/>
                         <outlet property="rightButton" destination="cOq-A7-abw" id="ZGU-n2-S9d"/>
                         <outlet property="rightTimerInterface" destination="KEf-YO-gzV" id="9cp-eU-sea"/>
-                        <outlet property="totalTimer" destination="beO-Za-tLh" id="63H-3q-Wja"/>
+                        <outlet property="totalTimerInterface" destination="beO-Za-tLh" id="7mD-3d-UOO"/>
                     </connections>
                 </controller>
             </objects>
