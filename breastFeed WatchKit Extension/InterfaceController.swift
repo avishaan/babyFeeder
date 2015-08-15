@@ -17,6 +17,7 @@ class InterfaceController: WKInterfaceController {
   @IBOutlet weak var totalTimerInterface: WKInterfaceTimer!
   @IBOutlet weak var leftButton: WKInterfaceButton!
   @IBOutlet weak var rightButton: WKInterfaceButton!
+  @IBOutlet weak var lastFeedDateLabel: WKInterfaceLabel!
   
   var leftTimer:Timer = Timer()
   var rightTimer:Timer = Timer()
@@ -132,6 +133,11 @@ class InterfaceController: WKInterfaceController {
     
     // reset the button state
     buttonState = (false, false)
+    
+    // set now as our last feed
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "MMM-dd h:mm a"
+    lastFeedDateLabel.setText(dateFormatter.stringFromDate(NSDate()))
     
   }
   
