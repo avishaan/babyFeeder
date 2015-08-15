@@ -17,6 +17,9 @@ class InterfaceController: WKInterfaceController {
   // color that designates the last button that was pressed
   let kLastStateColor = UIColor.orangeColor()
   
+  var lastFeedDate = NSDate()
+  
+  
   @IBOutlet weak var leftTimerInterface: WKInterfaceTimer!
   @IBOutlet weak var rightTimerInterface: WKInterfaceTimer!
   @IBOutlet weak var totalTimerInterface: WKInterfaceTimer!
@@ -43,6 +46,10 @@ class InterfaceController: WKInterfaceController {
     super.willActivate()
     lastButtonState =  self.restoreState()
     showLastUsedButton(lastButtonState)
+    
+    // restore the last feedDate
+    lastFeedDate = restoreLastFeedDate()
+    updateLastFeedDateLabel(lastFeedDate)
   }
   
   override func didDeactivate() {
@@ -157,10 +164,7 @@ class InterfaceController: WKInterfaceController {
     // update with the last button state since there should be nothing active at this point
     showLastUsedButton(lastButtonState)
     
-    // set now as our last feed
-    let dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = "MMM-dd h:mm a"
-    lastFeedDateLabel.setText(dateFormatter.stringFromDate(NSDate()))
+    updateLastFeedDateLabel(NSDate())
     
     // stop top timer and reset it
     totalTimer.reset()
@@ -197,6 +201,15 @@ class InterfaceController: WKInterfaceController {
     }
   }
   
+  // update the last feed date label with lastFeedDate as the date to set the date label to
+  func updateLastFeedDateLabel(lastFeedDate:NSDate) {
+    // set now as our last feed
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "MMM-dd h:mm a"
+    lastFeedDateLabel.setText(dateFormatter.stringFromDate(lastFeedDate))
+    // save date into persistance
+    persistLastFeedDate(lastFeedDate)
+  }
   
   func startTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
     // make sure the timer interface has the right info on it
@@ -212,6 +225,22 @@ class InterfaceController: WKInterfaceController {
     timerInterface.stop()
     // pause the timer model counting
     timer.stop()
+  }
+  
+  func persistLastFeedDate(lastFeedDate:NSDate) {
+    println("saving last feed date")
+    userDefaults.setObject(lastFeedDate, forKey: "lastFeedDate")
+  }
+  
+  func restoreLastFeedDate() -> NSDate {
+    let lastFeed = userDefaults.objectForKey("lastFeedDate") as? NSDate
+    if lastFeed == nil {
+      // if last feed is nil, it's our first time accessing it and set it to now
+      return NSDate()
+    } else {
+      // return the retreived value
+      return lastFeed!
+    }
   }
   
   func persistState(state:(left:Bool, right:Bool)) {
