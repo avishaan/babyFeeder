@@ -139,10 +139,6 @@ class InterfaceController: WKInterfaceController {
     leftTimerInterface.stop()
     leftTimerInterface.setDate(NSDate())
     
-    // reset the button colors
-    rightButton.setBackgroundColor(UIColor.darkGrayColor())
-    leftButton.setBackgroundColor(UIColor.darkGrayColor())
-    
     // reset the button state
     buttonState = (false, false)
     
