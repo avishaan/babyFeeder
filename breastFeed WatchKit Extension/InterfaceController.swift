@@ -76,6 +76,7 @@ class InterfaceController: WKInterfaceController {
     
     // manage the top timer which stays on if either left/right button is in the on state
     // if either button is on, make sure the timer is on
+    println("left: \(buttonState.left) right: \(buttonState.right) isTotalOn: \(totalTimer.on!)")
     if buttonState.left || buttonState.right {
       // only start timer if it is currently off
       if !totalTimer.on! {
@@ -113,6 +114,7 @@ class InterfaceController: WKInterfaceController {
     }
     // manage the top timer which stays on if either left/right button is in the on state
     // if either button is on, make sure the timer is on
+    println("left: \(buttonState.left) right: \(buttonState.right) isTotalOn: \(totalTimer.on!)")
     if buttonState.left || buttonState.right {
       // only start timer if it is currently off
       if !totalTimer.on! {
