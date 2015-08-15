@@ -12,6 +12,11 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
   
+  let kActiveStateColor = UIColor.greenColor()
+  let kPassiveStateColor = UIColor.grayColor()
+  // color that designates the last button that was pressed
+  let kLastStateColor = UIColor.orangeColor()
+  
   @IBOutlet weak var leftTimerInterface: WKInterfaceTimer!
   @IBOutlet weak var rightTimerInterface: WKInterfaceTimer!
   @IBOutlet weak var totalTimerInterface: WKInterfaceTimer!
@@ -139,8 +144,18 @@ class InterfaceController: WKInterfaceController {
     leftTimerInterface.stop()
     leftTimerInterface.setDate(NSDate())
     
+    // if any button is active that becomes the new passive state button
+    if buttonState.left || buttonState.right {
+      lastButtonState = buttonState
+    } else {
+      // don't do anything because we aren't counting and we want to keep the current passive button state
+    }
+    
     // reset the button state
     buttonState = (false, false)
+    
+    // update with the last button state since there should be nothing active at this point
+    showLastUsedButton(lastButtonState)
     
     // set now as our last feed
     let dateFormatter = NSDateFormatter()
@@ -154,17 +169,31 @@ class InterfaceController: WKInterfaceController {
     totalTimerInterface.setDate(NSDate())
   }
   
+  // func checks the button states and update them with the correct color
+  func showCurrentButtonState(buttonState:(left:Bool, right:Bool)) {
+    if buttonState.left {
+      leftButton.setBackgroundColor(kActiveStateColor)
+    } else {
+      leftButton.setBackgroundColor(kPassiveStateColor)
+    }
+    if buttonState.right {
+      rightButton.setBackgroundColor(kActiveStateColor)
+    } else {
+      rightButton.setBackgroundColor(kPassiveStateColor)
+    }
+  }
+  
   func showLastUsedButton(lastButtonState:(left:Bool, right:Bool)) {
     // see if any of the last button states are on, if they are go ahead and make the interface reflect that
     if lastButtonState.left {
-      leftButton.setBackgroundColor(UIColor.orangeColor())
+      leftButton.setBackgroundColor(kLastStateColor)
     } else {
-      leftButton.setBackgroundColor(UIColor.darkGrayColor())
+      leftButton.setBackgroundColor(kPassiveStateColor)
     }
     if lastButtonState.right {
-      rightButton.setBackgroundColor(UIColor.orangeColor())
+      rightButton.setBackgroundColor(kLastStateColor)
     } else {
-      rightButton.setBackgroundColor(UIColor.darkGrayColor())
+      rightButton.setBackgroundColor(kPassiveStateColor)
     }
   }
   
