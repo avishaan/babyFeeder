@@ -22,11 +22,16 @@ class InterfaceController: WKInterfaceController {
   var rightTimer:Timer = Timer()
   // keep track of which button is active
   var buttonState = (left: false, right: false)
+  var lastButtonState:(left:Bool, right:Bool)!
+  
+  var userDefaults = NSUserDefaults.standardUserDefaults()
   
   override func awakeWithContext(context: AnyObject?) {
     super.awakeWithContext(context)
     
     // Configure interface objects here.
+    lastButtonState =  self.restoreState()
+    
   }
   
   override func willActivate() {
@@ -35,6 +40,8 @@ class InterfaceController: WKInterfaceController {
   }
   
   override func didDeactivate() {
+    // save the state of the buttons
+    self.persistState(lastButtonState)
     // This method is called when watch view controller is no longer visible
     super.didDeactivate()
   }
@@ -121,5 +128,28 @@ class InterfaceController: WKInterfaceController {
     timerInterface.stop()
     // pause the timer model counting
     timer.stop()
+  }
+  
+  func persistState(state:(left:Bool, right:Bool)) {
+    println("persist the state of the timers")
+    // save state of left button
+    userDefaults.setObject(state.left, forKey: "buttonStateLeft")
+    // save state of right button
+    userDefaults.setObject(state.right, forKey: "buttonStateRight")
+  }
+  
+  func restoreState() -> (left:Bool, right:Bool) {
+    // object for key will return nil when unset vs boolForKey which will return false
+    let leftState = userDefaults.objectForKey("buttonStateLeft") as? Bool
+    let rightState = userDefaults.objectForKey("buttonStateRight") as? Bool
+    // if the value is nil, this is our first time accessing it, set everything to false
+    if leftState == nil || rightState == nil {
+      println("first time, will be nil")
+      return (false, false);
+    } else {
+      // use the values in the userDefaults
+      println("we already have values")
+      return (leftState!, rightState!)
+    }
   }
 }
