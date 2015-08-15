@@ -57,11 +57,11 @@ class InterfaceController: WKInterfaceController {
     if buttonState.right {
       // if right button is enabled, disable and stop timer and set as last button
       buttonState.right = false
-      rightButton.setBackgroundColor(UIColor.orangeColor())
+      // this button was last pressed, set right button lastButtonState to remember this and set left to false
+      lastButtonState = (false, true)
+      showLastUsedButton(lastButtonState)
       // update the timer interface and model
       stopTimer(rightTimerInterface, timer: rightTimer)
-      // this button was last pressed, set right button lastButtonState to remember this and set left to false
-      lastButtonState = (true, false)
       
     } else {
       // if right button is disabled, enable and start timer and remove last button set on the left
@@ -86,10 +86,9 @@ class InterfaceController: WKInterfaceController {
     if buttonState.left {
       // disable left button
       buttonState.left = false
-      leftButton.setBackgroundColor(UIColor.orangeColor())
+      lastButtonState = (true, false)
+      showLastUsedButton(lastButtonState)
       stopTimer(leftTimerInterface, timer: leftTimer)
-      // this button was last pressed, set right button lastButtonState to remember this and set left to false
-      lastButtonState = (false, true)
     } else {
       // enable left button
       buttonState.left = true
@@ -117,6 +116,20 @@ class InterfaceController: WKInterfaceController {
     // reset the button state
     buttonState = (false, false)
     
+  }
+  
+  func showLastUsedButton(lastButtonState:(left:Bool, right:Bool)) {
+    // see if any of the last button states are on, if they are go ahead and make the interface reflect that
+    if lastButtonState.left {
+      leftButton.setBackgroundColor(UIColor.orangeColor())
+    } else {
+      leftButton.setBackgroundColor(UIColor.darkGrayColor())
+    }
+    if lastButtonState.right {
+      rightButton.setBackgroundColor(UIColor.orangeColor())
+    } else {
+      rightButton.setBackgroundColor(UIColor.darkGrayColor())
+    }
   }
   
   
