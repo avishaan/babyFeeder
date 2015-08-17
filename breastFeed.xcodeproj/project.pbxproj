@@ -22,6 +22,7 @@
 		8266FAA91B70B3D60043365F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8266FAA81B70B3D60043365F /* Images.xcassets */; };
 		8266FAAC1B70B3D60043365F /* breastFeed WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8266FA8F1B70B3D50043365F /* breastFeed WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8266FAB51B71AE660043365F /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8266FAB41B71AE660043365F /* Timer.swift */; };
+		826CBCFF1B816A9500C40C9E /* LastDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826CBCFE1B816A9500C40C9E /* LastDuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		8266FAA61B70B3D60043365F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		8266FAA81B70B3D60043365F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8266FAB41B71AE660043365F /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		826CBCFE1B816A9500C40C9E /* LastDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastDuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				8266FA9A1B70B3D50043365F /* Images.xcassets */,
 				8266FA911B70B3D50043365F /* Supporting Files */,
 				8266FAB41B71AE660043365F /* Timer.swift */,
+				826CBCFE1B816A9500C40C9E /* LastDuration.swift */,
 			);
 			path = "breastFeed WatchKit Extension";
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826CBCFF1B816A9500C40C9E /* LastDuration.swift in Sources */,
 				8266FA971B70B3D50043365F /* NotificationController.swift in Sources */,
 				8266FA951B70B3D50043365F /* InterfaceController.swift in Sources */,
 				8266FA991B70B3D50043365F /* GlanceController.swift in Sources */,
