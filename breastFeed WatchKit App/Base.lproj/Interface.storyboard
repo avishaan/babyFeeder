@@ -74,7 +74,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="breastFeed_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group width="1" height="151" alignment="left" layout="vertical" id="91Q-cg-OAB">
+                        <group width="1" height="151" alignment="left" layout="vertical" radius="0.0" id="91Q-cg-OAB">
                             <items>
                                 <group width="1" alignment="left" id="Vcz-oU-cfe">
                                     <items>
