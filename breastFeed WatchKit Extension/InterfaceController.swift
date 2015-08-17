@@ -247,7 +247,7 @@ class InterfaceController: WKInterfaceController {
   func updateLastFeedDateLabel(lastFeedDate:NSDate, lastFeedDuration:LastDuration) {
     // set now as our last feed
     let dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = "MMM-dd h:mm a"
+    dateFormatter.dateFormat = "h:mm a"
     let lastFeedDateString = dateFormatter.stringFromDate(lastFeedDate)
     
     // combine the last feed date with the last feed duration
