@@ -16,7 +16,7 @@ class LastDuration {
     self.durationInterval = NSTimeInterval(interval)
     
     // just need the minutes back
-    self.timeFormatter.unitsStyle = .Short
+    self.timeFormatter.unitsStyle = .Abbreviated
   }
   
   var text: String {
