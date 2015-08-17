@@ -18,7 +18,7 @@ class InterfaceController: WKInterfaceController {
   let kLastStateColor = UIColor.orangeColor()
   
   var lastFeedDate = NSDate()
-  var lastFeedTime = NSTimeInterval()
+  var lastFeedDuration = LastDuration()
   
   
   @IBOutlet weak var leftTimerInterface: WKInterfaceTimer!
@@ -45,7 +45,8 @@ class InterfaceController: WKInterfaceController {
     
     // restore the last feedDate
     lastFeedDate = restoreLastFeedDate()
-    updateLastFeedDateLabel(lastFeedDate)
+    lastFeedDuration = restoreLastFeedDuration()
+    updateLastFeedDateLabel(lastFeedDate, lastFeedDuration: lastFeedDuration)
     
   }
   
@@ -148,9 +149,11 @@ class InterfaceController: WKInterfaceController {
     
     // reset the timerInterface
     rightTimerInterface.stop()
+    // set to current date to zero it out
     rightTimerInterface.setDate(NSDate())
     
     leftTimerInterface.stop()
+    // set to current date to zero it out
     leftTimerInterface.setDate(NSDate())
     
     // reset the button state
@@ -159,12 +162,16 @@ class InterfaceController: WKInterfaceController {
     // update with the last button state since there should be nothing active at this point
     updateButtonStates()
     
-    updateLastFeedDateLabel(NSDate())
+    updateLastFeedDateLabel(NSDate(), lastFeedDuration: lastFeedDuration)
+    
+    // set the lastDuration to the total timer so it says your last duration
+    lastFeedDuration.interval = totalTimer.timeElapsed
     
     // stop top timer and reset it
     totalTimer.reset()
     //reset the timer interface
     totalTimerInterface.stop()
+    // set to current date to zero it out
     totalTimerInterface.setDate(NSDate())
   }
   
@@ -236,13 +243,17 @@ class InterfaceController: WKInterfaceController {
   }
   
   // update the last feed date label with lastFeedDate as the date to set the date label to
-  func updateLastFeedDateLabel(lastFeedDate:NSDate) {
+  func updateLastFeedDateLabel(lastFeedDate:NSDate, lastFeedDuration:LastDuration) {
     // set now as our last feed
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "MMM-dd h:mm a"
-    lastFeedDateLabel.setText(dateFormatter.stringFromDate(lastFeedDate))
+    let lastFeedDateString = dateFormatter.stringFromDate(lastFeedDate)
+    
+    // combine the last feed date with the last feed duration
+    lastFeedDateLabel.setText(lastFeedDateString + " " + lastFeedDuration.text)
     // save date into persistance
     persistLastFeedDate(lastFeedDate)
+    persistLastFeedDuration(lastFeedDuration.interval)
   }
   
   func startTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
@@ -259,6 +270,23 @@ class InterfaceController: WKInterfaceController {
     timerInterface.stop()
     // pause the timer model counting
     timer.stop()
+  }
+  
+  func restoreLastFeedDuration() -> LastDuration {
+    println("restore last feed duration")
+    let lastFeed = userDefaults.objectForKey("lastFeedDuration") as? Double
+    if lastFeed == nil {
+      // if last feed is nil, it's our first time accessing it and set it to now
+      return LastDuration()
+    } else {
+      // return the retreived value
+      return LastDuration(startDuration: lastFeed!)
+    }
+  }
+  
+  func persistLastFeedDuration(lastFeedDuration:Double) {
+    println("saving last feed duration")
+    userDefaults.setObject(lastFeedDuration, forKey: "lastFeedDuration")
   }
   
   func persistLastFeedDate(lastFeedDate:NSDate) {
