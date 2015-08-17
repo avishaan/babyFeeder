@@ -22,8 +22,9 @@
                                     <items>
                                         <group alignment="left" radius="30" id="0mW-Jb-UDO">
                                             <items>
-                                                <button width="66" height="58.5" alignment="left" title="Left" id="b0n-Bc-wAP">
-                                                    <color key="backgroundColor" red="1" green="0.65175654249893378" blue="0.92302579715375477" alpha="1" colorSpace="calibratedRGB"/>
+                                                <button width="66" height="58.5" alignment="left" alpha="0.5" title="Left" id="b0n-Bc-wAP">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.85788029432296753" green="0.49200505018234253" blue="0.48773312568664551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="onLeftButtonTap" destination="AgC-eL-Hgc" id="4HH-fK-GWO"/>
                                                     </connections>
@@ -33,7 +34,8 @@
                                         <group alignment="left" radius="30" id="KUw-Kw-XZo">
                                             <items>
                                                 <button width="66" height="58.5" alignment="left" title="Right" id="A3v-Ez-KpB">
-                                                    <color key="backgroundColor" red="0.38594859334462989" green="0.87261182069778442" blue="0.5084944397637412" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.85788029432296753" green="0.49200505018234253" blue="0.48773312568664551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="onRightButtonTap" destination="AgC-eL-Hgc" id="KRL-co-E89"/>
                                                     </connections>
@@ -54,13 +56,12 @@
                                     </items>
                                 </group>
                                 <button width="1" alignment="left" title="Finish Feed" id="HTv-Mj-7HS">
-                                    <color key="backgroundColor" red="0.16060302448676853" green="0.26359073973037456" blue="0.64040030420353977" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="onNewButtonTap" destination="AgC-eL-Hgc" id="jwM-uI-AY8"/>
                                     </connections>
                                 </button>
                             </items>
-                            <color key="backgroundColor" red="0.11918377275066079" green="0.19562934815330443" blue="0.44600387168141598" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.27848451327433632" green="0.27848451327433632" blue="0.27848451327433632" alpha="1" colorSpace="calibratedRGB"/>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                         </group>
                     </items>
