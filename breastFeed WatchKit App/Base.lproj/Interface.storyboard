@@ -6,6 +6,69 @@
     </dependencies>
     <scenes>
         <!--Interface Controller-->
+        <scene sceneID="ibe-YT-VKC">
+            <objects>
+                <controller id="oVT-Gd-qg2">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" radius="0.0" id="utL-kM-ieL">
+                            <items>
+                                <group width="1" alignment="left" id="XvL-z6-H7O">
+                                    <items>
+                                        <label width="39.5" alignment="left" text="Last Feed:" minimumScaleFactor="0.30000000000000016" id="W3r-dQ-Rlf"/>
+                                        <label width="93.5" alignment="left" text="10:00 am for 35m" textAlignment="right" minimumScaleFactor="0.50000000000000011" id="DxT-8Z-h08"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="1" alignment="left" id="8JV-2Z-iyE">
+                                    <items>
+                                        <group alignment="left" radius="30" id="0mW-Jb-UDO">
+                                            <items>
+                                                <button width="66" height="58.5" alignment="left" title="Left" id="b0n-Bc-wAP">
+                                                    <color key="backgroundColor" red="1" green="0.65175654249893378" blue="0.92302579715375477" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="onLeftButtonTap" destination="AgC-eL-Hgc" id="4HH-fK-GWO"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                        <group alignment="left" radius="30" id="KUw-Kw-XZo">
+                                            <items>
+                                                <button width="66" height="58.5" alignment="left" title="Right" id="A3v-Ez-KpB">
+                                                    <color key="backgroundColor" red="0.62691571784740052" green="0.87261182069778442" blue="0.67155956960681407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="onRightButtonTap" destination="AgC-eL-Hgc" id="KRL-co-E89"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="center" id="FYz-Xb-nAN">
+                                    <items>
+                                        <timer width="37" alignment="left" minimumScaleFactor="0.20000000000000015" format="abbreviated" previewedSeconds="542" id="T4O-if-SJB">
+                                            <calendarUnit key="units" minute="YES" second="YES"/>
+                                        </timer>
+                                        <timer width="51" alignment="center" textAlignment="center" minimumScaleFactor="0.50000000000000011" format="abbreviated" previewedSeconds="666" id="wOu-nR-voM"/>
+                                        <timer alignment="right" minimumScaleFactor="0.20000000000000015" format="abbreviated" previewedSeconds="120" id="OJF-I7-MLn">
+                                            <calendarUnit key="units" minute="YES" second="YES"/>
+                                        </timer>
+                                    </items>
+                                </group>
+                                <button width="1" alignment="left" title="Finish Feed" id="HTv-Mj-7HS">
+                                    <color key="backgroundColor" red="0.77500322733542737" green="0.69897386672254558" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="onNewButtonTap" destination="AgC-eL-Hgc" id="jwM-uI-AY8"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" red="0.7219205226386578" green="0.55252885073903868" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="45"/>
+        </scene>
+        <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="breastFeed_WatchKit_App" customModuleProvider="target">
