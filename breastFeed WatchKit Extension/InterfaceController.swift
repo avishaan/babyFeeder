@@ -12,10 +12,12 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
   
-  let kActiveStateColor = UIColor.greenColor()
-  let kPassiveStateColor = UIColor.grayColor()
-  // color that designates the last button that was pressed
-  let kLastStateColor = UIColor.orangeColor()
+  // 206	104	107
+  let kActiveStateColor = UIColor(red: 206/255, green: 104/255, blue: 107/255, alpha: 1.0)
+  // 95	95	96	 // this should be the default grey
+  let kPassiveStateColor = UIColor(red: 95/255, green: 95/255, blue: 96/255, alpha: 1.0)
+  // color that designates the last button that was last pressed
+  let kLastStateColor = UIColor(red: 206/255, green: 104/255, blue: 107/255, alpha: 0.5)
   
   var lastFeedDate = NSDate()
   var lastFeedDuration = LastDuration()
@@ -156,9 +158,19 @@ class InterfaceController: WKInterfaceController {
     // set to current date to zero it out
     leftTimerInterface.setDate(NSDate())
     
-    // reset the button state
+    // pick the correct last button state based on currently active button
+    if buttonState.left {
+      lastButtonState = (true, false)
+    }
+    if buttonState.right {
+      lastButtonState = (false, true)
+    }
+    
+    // reset the active button state
     buttonState = (false, false)
     
+    
+    totalTimer.stop()
     // set the lastDuration to the total timer so it says your last duration
     lastFeedDuration.interval = totalTimer.timeElapsed
     
