@@ -18,6 +18,7 @@ class InterfaceController: WKInterfaceController {
   let kLastStateColor = UIColor.orangeColor()
   
   var lastFeedDate = NSDate()
+  var lastFeedTime = NSTimeInterval()
   
   
   @IBOutlet weak var leftTimerInterface: WKInterfaceTimer!
