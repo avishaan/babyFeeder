@@ -159,13 +159,14 @@ class InterfaceController: WKInterfaceController {
     // reset the button state
     buttonState = (false, false)
     
+    // set the lastDuration to the total timer so it says your last duration
+    lastFeedDuration.interval = totalTimer.timeElapsed
+    
+    
     // update with the last button state since there should be nothing active at this point
     updateButtonStates()
     
     updateLastFeedDateLabel(NSDate(), lastFeedDuration: lastFeedDuration)
-    
-    // set the lastDuration to the total timer so it says your last duration
-    lastFeedDuration.interval = totalTimer.timeElapsed
     
     // stop top timer and reset it
     totalTimer.reset()
