@@ -10,7 +10,7 @@
             <objects>
                 <controller id="oVT-Gd-qg2">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" id="utL-kM-ieL">
+                        <group width="1" alignment="left" layout="vertical" radius="0.0" id="utL-kM-ieL">
                             <items>
                                 <group width="1" alignment="left" id="XvL-z6-H7O">
                                     <items>
@@ -23,6 +23,7 @@
                                         <group alignment="left" radius="30" id="0mW-Jb-UDO">
                                             <items>
                                                 <button width="66" height="58.5" alignment="left" title="Left" id="b0n-Bc-wAP">
+                                                    <color key="backgroundColor" red="1" green="0.65175654249893378" blue="0.92302579715375477" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="onLeftButtonTap" destination="AgC-eL-Hgc" id="4HH-fK-GWO"/>
                                                     </connections>
@@ -32,7 +33,7 @@
                                         <group alignment="left" radius="30" id="KUw-Kw-XZo">
                                             <items>
                                                 <button width="66" height="58.5" alignment="left" title="Right" id="A3v-Ez-KpB">
-                                                    <color key="backgroundColor" red="0.0011936888351877996" green="0.89498500631313127" blue="0.048709982890252787" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.62691571784740052" green="0.87261182069778442" blue="0.67155956960681407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="onRightButtonTap" destination="AgC-eL-Hgc" id="KRL-co-E89"/>
                                                     </connections>
@@ -53,11 +54,14 @@
                                     </items>
                                 </group>
                                 <button width="1" alignment="left" title="Finish Feed" id="HTv-Mj-7HS">
+                                    <color key="backgroundColor" red="0.77500322733542737" green="0.69897386672254558" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="onNewButtonTap" destination="AgC-eL-Hgc" id="jwM-uI-AY8"/>
                                     </connections>
                                 </button>
                             </items>
+                            <color key="backgroundColor" red="0.7219205226386578" green="0.55252885073903868" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                         </group>
                     </items>
                 </controller>
