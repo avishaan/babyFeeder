@@ -251,7 +251,7 @@ class InterfaceController: WKInterfaceController {
     let lastFeedDateString = dateFormatter.stringFromDate(lastFeedDate)
     
     // combine the last feed date with the last feed duration
-    lastFeedDateLabel.setText(lastFeedDateString + " " + lastFeedDuration.text)
+    lastFeedDateLabel.setText(lastFeedDateString + " for " + lastFeedDuration.text)
     // save date into persistance
     persistLastFeedDate(lastFeedDate)
     persistLastFeedDuration(lastFeedDuration.interval)
