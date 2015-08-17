@@ -158,8 +158,17 @@ class InterfaceController: WKInterfaceController {
     // set to current date to zero it out
     leftTimerInterface.setDate(NSDate())
     
-    // reset the button state
+    // pick the correct last button state based on currently active button
+    if buttonState.left {
+      lastButtonState = (true, false)
+    }
+    if buttonState.right {
+      lastButtonState = (false, true)
+    }
+    
+    // reset the active button state
     buttonState = (false, false)
+    
     
     totalTimer.stop()
     // set the lastDuration to the total timer so it says your last duration
