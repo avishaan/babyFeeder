@@ -109,7 +109,9 @@
                                         <timer width="25" alignment="left" textAlignment="left" minimumScaleFactor="0.20000000000000015" id="JRb-Pc-vPt">
                                             <calendarUnit key="units" minute="YES" second="YES"/>
                                         </timer>
-                                        <timer alignment="center" textAlignment="center" minimumScaleFactor="0.50000000000000011" format="short" id="beO-Za-tLh"/>
+                                        <timer alignment="center" textAlignment="center" minimumScaleFactor="0.50000000000000011" format="short" id="beO-Za-tLh">
+                                            <calendarUnit key="units" hour="YES" minute="YES"/>
+                                        </timer>
                                         <timer width="25" alignment="right" minimumScaleFactor="0.20000000000000015" id="KEf-YO-gzV">
                                             <calendarUnit key="units" minute="YES" second="YES"/>
                                         </timer>
