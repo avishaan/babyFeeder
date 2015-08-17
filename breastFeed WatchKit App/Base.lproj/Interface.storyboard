@@ -74,42 +74,55 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="breastFeed_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group width="1" alignment="left" id="Vcz-oU-cfe">
+                        <group width="1" height="151" alignment="left" layout="vertical" id="91Q-cg-OAB">
                             <items>
-                                <label width="39.5" alignment="left" text="Last Feed:" minimumScaleFactor="0.30000000000000016" id="kje-ZP-Ihz"/>
-                                <label width="93.5" alignment="left" text="Label" textAlignment="right" minimumScaleFactor="0.50000000000000011" id="tXe-sR-eWN"/>
-                            </items>
-                        </group>
-                        <group width="1" height="55.5" alignment="left" id="2U8-1f-oCm">
-                            <items>
-                                <button width="66" height="58.5" alignment="left" title="Left" id="oel-1K-LPj">
+                                <group width="1" alignment="left" id="Vcz-oU-cfe">
+                                    <items>
+                                        <label width="39.5" alignment="left" text="Last Feed:" minimumScaleFactor="0.30000000000000016" id="kje-ZP-Ihz"/>
+                                        <label width="93.5" alignment="left" text="Label" textAlignment="right" minimumScaleFactor="0.50000000000000011" id="tXe-sR-eWN"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="2U8-1f-oCm">
+                                    <items>
+                                        <group alignment="left" radius="30" id="kdh-RA-quW">
+                                            <items>
+                                                <button width="66" height="58.5" alignment="left" title="Left" id="oel-1K-LPj">
+                                                    <connections>
+                                                        <action selector="onLeftButtonTap" destination="AgC-eL-Hgc" id="dqP-mm-xtr"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                        <group alignment="left" radius="30" id="G8K-5y-7Ek">
+                                            <items>
+                                                <button width="66" height="58.5" alignment="left" title="Right" id="cOq-A7-abw">
+                                                    <connections>
+                                                        <action selector="onRightButtonTap" destination="AgC-eL-Hgc" id="dmJ-ze-i7F"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="center" id="VOF-Bc-agA">
+                                    <items>
+                                        <timer width="37" alignment="left" minimumScaleFactor="0.20000000000000015" format="abbreviated" id="JRb-Pc-vPt">
+                                            <calendarUnit key="units" minute="YES" second="YES"/>
+                                        </timer>
+                                        <timer width="51" alignment="center" textAlignment="center" minimumScaleFactor="0.50000000000000011" format="abbreviated" id="beO-Za-tLh"/>
+                                        <timer alignment="right" minimumScaleFactor="0.20000000000000015" format="abbreviated" id="KEf-YO-gzV">
+                                            <calendarUnit key="units" minute="YES" second="YES"/>
+                                        </timer>
+                                    </items>
+                                </group>
+                                <button width="1" alignment="left" title="Finish Feed" id="tz2-hF-bsE">
                                     <connections>
-                                        <action selector="onLeftButtonTap" destination="AgC-eL-Hgc" id="dqP-mm-xtr"/>
+                                        <action selector="onNewButtonTap" destination="AgC-eL-Hgc" id="Mkx-o6-M2o"/>
                                     </connections>
                                 </button>
-                                <button width="66" height="58.5" alignment="left" title="Right" id="cOq-A7-abw">
-                                    <connections>
-                                        <action selector="onRightButtonTap" destination="AgC-eL-Hgc" id="dmJ-ze-i7F"/>
-                                    </connections>
-                                </button>
                             </items>
+                            <color key="backgroundColor" red="0.34897813200950623" green="0.34904348850250244" blue="0.34897401928901672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </group>
-                        <group width="1" alignment="center" id="VOF-Bc-agA">
-                            <items>
-                                <timer width="37" alignment="left" minimumScaleFactor="0.20000000000000015" format="abbreviated" id="JRb-Pc-vPt">
-                                    <calendarUnit key="units" minute="YES" second="YES"/>
-                                </timer>
-                                <timer width="51" alignment="center" textAlignment="center" minimumScaleFactor="0.50000000000000011" format="abbreviated" id="beO-Za-tLh"/>
-                                <timer alignment="right" minimumScaleFactor="0.20000000000000015" format="abbreviated" id="KEf-YO-gzV">
-                                    <calendarUnit key="units" minute="YES" second="YES"/>
-                                </timer>
-                            </items>
-                        </group>
-                        <button width="1" alignment="left" title="Finish Feed" id="tz2-hF-bsE">
-                            <connections>
-                                <action selector="onNewButtonTap" destination="AgC-eL-Hgc" id="Mkx-o6-M2o"/>
-                            </connections>
-                        </button>
                     </items>
                     <connections>
                         <outlet property="lastFeedDateLabel" destination="tXe-sR-eWN" id="L7n-g9-maj"/>
