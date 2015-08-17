@@ -161,6 +161,7 @@ class InterfaceController: WKInterfaceController {
     // reset the button state
     buttonState = (false, false)
     
+    totalTimer.stop()
     // set the lastDuration to the total timer so it says your last duration
     lastFeedDuration.interval = totalTimer.timeElapsed
     

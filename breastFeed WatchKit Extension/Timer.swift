@@ -21,6 +21,13 @@ class Timer {
     }
   }
   
+  var secondsElapsed: Double {
+    get {
+      let difference = NSDate().timeIntervalSinceDate(lastStart)
+      return difference
+    }
+  }
+  
   init() {
     timeElapsed = 0
     // assume button is off
