@@ -106,11 +106,11 @@
                                 </group>
                                 <group width="1" alignment="center" id="VOF-Bc-agA">
                                     <items>
-                                        <timer width="37" alignment="left" minimumScaleFactor="0.20000000000000015" format="abbreviated" id="JRb-Pc-vPt">
+                                        <timer width="25" alignment="left" textAlignment="left" minimumScaleFactor="0.20000000000000015" id="JRb-Pc-vPt">
                                             <calendarUnit key="units" minute="YES" second="YES"/>
                                         </timer>
-                                        <timer width="51" alignment="center" textAlignment="center" minimumScaleFactor="0.50000000000000011" format="abbreviated" id="beO-Za-tLh"/>
-                                        <timer alignment="right" minimumScaleFactor="0.20000000000000015" format="abbreviated" id="KEf-YO-gzV">
+                                        <timer alignment="center" textAlignment="center" minimumScaleFactor="0.50000000000000011" format="short" id="beO-Za-tLh"/>
+                                        <timer width="25" alignment="right" minimumScaleFactor="0.20000000000000015" id="KEf-YO-gzV">
                                             <calendarUnit key="units" minute="YES" second="YES"/>
                                         </timer>
                                     </items>
