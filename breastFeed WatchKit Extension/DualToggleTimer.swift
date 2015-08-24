@@ -10,6 +10,8 @@ import Foundation
 
 class DualToggleTimer {
   var timers:(left:Timer, right:Timer)!
+  var lastOn:Side!
+  var currentOn:Side!
   enum Side {
     case Left
     case Right
@@ -20,6 +22,7 @@ class DualToggleTimer {
     // initialize the two timers
     timers.left = Timer()
     timers.right = Timer()
+    lastOn = .Both
     
     // TODO: restore state from previous state
   }
