@@ -105,7 +105,7 @@ class ToggleTimer {
     }
     if let totalTimer = userDefaults.objectForKey("totalTimer") as? NSDate {
       timers.total.lastStart = totalTimer
-      println("restoring total seconds: \(totalTimer)")
+      println("restoring total seconds: \(totalTimer) vs now: \(NSDate())")
     }
     
   }

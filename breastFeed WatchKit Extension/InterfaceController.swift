@@ -53,6 +53,8 @@ class InterfaceController: WKInterfaceController {
     updateLastFeedDateLabel(lastFeedDate, lastFeedDuration: lastFeedDuration)
     
     tripleTimer.restoreState()
+    updateTimerInterface(tripleTimer)
+    updateButtonColor(tripleTimer)
     
   }
   
@@ -62,8 +64,9 @@ class InterfaceController: WKInterfaceController {
   }
   
   override func didDeactivate() {
-    // save the state of the buttons
-    self.persistState(lastButtonState)
+    println("func didDeactivate called")
+    // save the state of the timers
+    tripleTimer.persistState()
     // This method is called when watch view controller is no longer visible
     super.didDeactivate()
   }

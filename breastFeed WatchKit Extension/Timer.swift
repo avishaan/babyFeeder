@@ -17,7 +17,10 @@ class Timer {
     get {
       // take the timeElapsed and convert it to a date
       // time needs to be in the past
-      return NSDate().dateByAddingTimeInterval(-timeElapsed)
+      return lastStart.dateByAddingTimeInterval(-timeElapsed)
+    }
+    set {
+      //
     }
   }
   
@@ -44,9 +47,14 @@ class Timer {
   }
   
   func start() {
-    // keep track of when the timer started
-    lastStart = NSDate()
-    on = true
+    if !on {
+      // keep track of when the timer started
+      // add the seconds elapsed to that date (will allow to remember time)
+      lastStart = NSDate().dateByAddingTimeInterval(-timeElapsed)
+      // remove the seconds elapsed since it's now built into the date
+      timeElapsed = 0
+      on = true
+    }
   }
   
   // see how much time has elapsed so far and save it
@@ -56,7 +64,7 @@ class Timer {
       // see how many seconds have passed from when the timer started and now
       let timeElapsedLastSinceStart = NSDate().timeIntervalSinceDate(lastStart)
       // increment the timer by this amount
-      incrementTimer(timeElapsedLastSinceStart)
+      timeElapsed = timeElapsedLastSinceStart + timeElapsed
       on = false
     }
   }
