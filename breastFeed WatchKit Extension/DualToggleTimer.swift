@@ -9,31 +9,64 @@
 import Foundation
 
 class DualToggleTimer {
-  var timers:(left:Timer, right:Timer)!
-  var lastOn:Side!
-  var currentOn:Side!
+  var timers:(left:Timer, right:Timer, total:Timer)!
+//  var state = [Side.Left, State.None]
+  
+  var lastOn:Side = .None
+  var currentOn:Side = .None
+  
+  enum State {
+    case Active
+    case LastOn
+    case None
+  }
+  
   enum Side {
     case Left
     case Right
-    case Both
+    case None
   }
   
   init() {
     // initialize the two timers
     timers.left = Timer()
     timers.right = Timer()
-    lastOn = .Both
     
     // TODO: restore state from previous state
   }
   
-  func start(side:Side) {
-    if (side == Side.Left) {
-      println("left on")
+  func trigger(side:Side) {
+    // store the currentOn as the one that was last on
+    lastOn = currentOn
+    // if the triggered side is the same as the currentOn side, then just pause the timers
+    if side == currentOn {
+      timers.left.stop()
+      timers.right.stop()
+      // set nothing as currentlyOn
+      currentOn = .None
+    } else {
+      // set this side as current on
+      currentOn = side
+      // turn off all timers
+      timers.left.stop()
+      timers.right.stop()
+      // start the timer for this side
+      switch side {
+      case .Left:
+        timers.left.start()
+      case .Right:
+        timers.right.start()
+      default:
+        println("This is an error")
+      }
+      
     }
+    // save the start time into the persistance
+    
   }
   
-  func stop(side:Side) {
+  func restoreState() {
+    println("Restore State")
     
   }
   
