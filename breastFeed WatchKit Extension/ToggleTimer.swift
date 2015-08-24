@@ -76,8 +76,13 @@ class ToggleTimer {
       switch currentOn {
       case "Left":
         self.currentOn = .Left
+        // since left was on, turn it on again
+        timers.left.start()
+        timers.total.start()
       case "Right":
         self.currentOn = .Right
+        timers.right.start()
+        timers.total.start()
       case "None":
         self.currentOn = .None
       default:
