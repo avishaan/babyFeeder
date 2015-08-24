@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DualToggleTimer {
+class ToggleTimer {
   var timers:(left:Timer, right:Timer, total:Timer)!
 //  var state = [Side.Left, State.None]
   
