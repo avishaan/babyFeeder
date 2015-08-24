@@ -97,14 +97,15 @@ class ToggleTimer {
     }
     
     // restore timer dates
-    if let leftTimer = userDefaults.objectForKey("leftTimer") as? Timer {
-      timers.left = leftTimer
+    if let leftTimer = userDefaults.objectForKey("leftTimer") as? NSDate {
+      timers.left.lastStart = leftTimer
     }
-    if let rightTimer = userDefaults.objectForKey("rightTimer") as? Timer {
-      timers.right = rightTimer
+    if let rightTimer = userDefaults.objectForKey("rightTimer") as? NSDate {
+      timers.right.lastStart = rightTimer
     }
-    if let totalTimer = userDefaults.objectForKey("totalTimer") as? Timer {
-      timers.total = totalTimer
+    if let totalTimer = userDefaults.objectForKey("totalTimer") as? NSDate {
+      timers.total.lastStart = totalTimer
+      println("restoring total seconds: \(totalTimer)")
     }
     
   }
@@ -116,9 +117,9 @@ class ToggleTimer {
     // save last button state
     userDefaults.setObject(lastOn.rawValue, forKey: "lastOn")
     // save timer dates
-    userDefaults.setObject(timers.left, forKey: "leftTimer")
-    userDefaults.setObject(timers.right, forKey: "rightTimer")
-    userDefaults.setObject(timers.total, forKey: "totalTimer")
+    userDefaults.setObject(timers.left.lastStart, forKey: "leftTimer")
+    userDefaults.setObject(timers.right.lastStart, forKey: "rightTimer")
+    userDefaults.setObject(timers.total.lastStart, forKey: "totalTimer")
   }
   
   func reset() {
