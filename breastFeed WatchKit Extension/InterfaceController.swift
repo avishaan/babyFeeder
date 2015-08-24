@@ -45,7 +45,7 @@ class InterfaceController: WKInterfaceController {
     super.awakeWithContext(context)
     
     lastButtonState =  self.restoreState()
-    showLastUsedButton(lastButtonState)
+//    showLastUsedButton(lastButtonState)
     
     // restore the last feedDate
     lastFeedDate = restoreLastFeedDate()
@@ -160,49 +160,23 @@ class InterfaceController: WKInterfaceController {
 //    }
   }
   @IBAction func onNewButtonTap() {
-    tripleTimer.reset()
-    // reset data in the timer models
-    rightTimer.reset()
-    leftTimer.reset()
+    // TODO the timeElapsed property only updates after the timer is stopped, this shoud work even without turning off the timer
+    tripleTimer.timers.total.stop()
+    // set the lastDuration to the total timer so it says your last duration
+    lastFeedDuration.interval = tripleTimer.timers.total.timeElapsed
+    println("last feed \(lastFeedDuration.text)")
     
-    // reset the timerInterface
-    rightTimerInterface.stop()
+    updateLastFeedDateLabel(NSDate(), lastFeedDuration: lastFeedDuration)
+    // reset data in the timer models
+    tripleTimer.reset()
+    updateTimerInterface(tripleTimer)
+    
     // set to current date to zero it out
     rightTimerInterface.setDate(NSDate())
-    
-    leftTimerInterface.stop()
-    // set to current date to zero it out
     leftTimerInterface.setDate(NSDate())
-    
-//    // pick the correct last button state based on currently active button
-//    if buttonState.left {
-//      lastButtonState = (true, false)
-//    }
-//    if buttonState.right {
-//      lastButtonState = (false, true)
-//    }
-//    
-//    // reset the active button state
-//    buttonState = (false, false)
-//    
-    
-    totalTimer.stop()
-    // set the lastDuration to the total timer so it says your last duration
-    lastFeedDuration.interval = totalTimer.timeElapsed
-    
+    totalTimerInterface.setDate(NSDate())
     
     updateButtonColor(tripleTimer)
-//    // update with the last button state since there should be nothing active at this point
-//    updateButtonStates()
-//    
-    updateLastFeedDateLabel(NSDate(), lastFeedDuration: lastFeedDuration)
-    
-    // stop top timer and reset it
-    totalTimer.reset()
-    //reset the timer interface
-    totalTimerInterface.stop()
-    // set to current date to zero it out
-    totalTimerInterface.setDate(NSDate())
   }
   
   func updateTimerInterface(timer:ToggleTimer) {

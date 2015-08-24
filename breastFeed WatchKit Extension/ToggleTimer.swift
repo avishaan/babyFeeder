@@ -77,9 +77,9 @@ class ToggleTimer {
     lastOn = currentOn
     // turn off the buttons
     currentOn = .None
-    timers.left = Timer()
-    timers.right = Timer()
-    timers.total = Timer()
+    timers.left.reset()
+    timers.right.reset()
+    timers.total.reset()
   }
   
 }
