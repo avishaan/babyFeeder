@@ -64,7 +64,8 @@ class ToggleTimer {
       }
       
     }
-    // save the start time into the persistance
+    // save into persistance everytime the state is changed
+    persistState()
     
   }
   
