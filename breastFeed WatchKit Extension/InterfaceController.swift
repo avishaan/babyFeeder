@@ -37,6 +37,8 @@ class InterfaceController: WKInterfaceController {
   var buttonState = (left: false, right: false)
   var lastButtonState:(left:Bool, right:Bool)!
   
+  var tripleTimer:ToggleTimer = ToggleTimer()
+  
   var userDefaults = NSUserDefaults.standardUserDefaults()
   
   override func awakeWithContext(context: AnyObject?) {
@@ -49,6 +51,8 @@ class InterfaceController: WKInterfaceController {
     lastFeedDate = restoreLastFeedDate()
     lastFeedDuration = restoreLastFeedDuration()
     updateLastFeedDateLabel(lastFeedDate, lastFeedDuration: lastFeedDuration)
+    
+    tripleTimer.restoreState()
     
   }
   
@@ -64,87 +68,97 @@ class InterfaceController: WKInterfaceController {
     super.didDeactivate()
   }
   @IBAction func onRightButtonTap() {
-    // check on the left button
-    if buttonState.left {
-      // no matter what, disable the left button if it is enabled
-      buttonState.left = false
-      // since the left button was just on, set as last button
-      lastButtonState = (true, false)
-      stopTimer(leftTimerInterface, timer: leftTimer)
-    }
-    // update the right button based on it's current state
-    if buttonState.right {
-      // if right button is enabled, disable and stop timer and set as last button
-      buttonState.right = false
-      // this button was last pressed, set right button lastButtonState to remember this and set left to false
-      lastButtonState = (false, true)
-      // update the timer interface and model
-      stopTimer(rightTimerInterface, timer: rightTimer)
-      
-    } else {
-      // if right button is disabled, enable and start timer and remove last button set on the left
-      buttonState.right = true
-      // update the timer interface and model
-      startTimer(rightTimerInterface, timer: rightTimer)
-    }
     
-    //visually update button states
-    updateButtonStates()
-    
-    // manage the top timer which stays on if either left/right button is in the on state
-    // if either button is on, make sure the timer is on
-    println("left: \(buttonState.left) right: \(buttonState.right) isTotalOn: \(totalTimer.on!)")
-    if buttonState.left || buttonState.right {
-      // only start timer if it is currently off
-      if !totalTimer.on! {
-        startTimer(totalTimerInterface, timer: totalTimer)
-      } else {
-        // the timer is already on and should be on, leave it alone
-      }
-    } else {
-      // if both buttons are off, turn off top timer
-      stopTimer(totalTimerInterface, timer: totalTimer)
-    }
+    tripleTimer.trigger(.Right)
+    // update button color states and the timer label
+    updateButtonColor(tripleTimer)
+//    
+//    // check on the left button
+//    if buttonState.left {
+//      // no matter what, disable the left button if it is enabled
+//      buttonState.left = false
+//      // since the left button was just on, set as last button
+//      lastButtonState = (true, false)
+//      stopTimer(leftTimerInterface, timer: leftTimer)
+//    }
+//    // update the right button based on it's current state
+//    if buttonState.right {
+//      // if right button is enabled, disable and stop timer and set as last button
+//      buttonState.right = false
+//      // this button was last pressed, set right button lastButtonState to remember this and set left to false
+//      lastButtonState = (false, true)
+//      // update the timer interface and model
+//      stopTimer(rightTimerInterface, timer: rightTimer)
+//      
+//    } else {
+//      // if right button is disabled, enable and start timer and remove last button set on the left
+//      buttonState.right = true
+//      // update the timer interface and model
+//      startTimer(rightTimerInterface, timer: rightTimer)
+//    }
+//    
+//    //visually update button states
+//    updateButtonStates()
+//    
+//    // manage the top timer which stays on if either left/right button is in the on state
+//    // if either button is on, make sure the timer is on
+//    println("left: \(buttonState.left) right: \(buttonState.right) isTotalOn: \(totalTimer.on!)")
+//    if buttonState.left || buttonState.right {
+//      // only start timer if it is currently off
+//      if !totalTimer.on! {
+//        startTimer(totalTimerInterface, timer: totalTimer)
+//      } else {
+//        // the timer is already on and should be on, leave it alone
+//      }
+//    } else {
+//      // if both buttons are off, turn off top timer
+//      stopTimer(totalTimerInterface, timer: totalTimer)
+//    }
   }
   
   @IBAction func onLeftButtonTap() {
-    // check the right button
-    if buttonState.right {
-      // if its on, turn it off
-      buttonState.right = false
-      // set this as the last button
-      lastButtonState = (false, true)
-      stopTimer(rightTimerInterface, timer: rightTimer)
-    }
-    // check this, left button if it's on
-    if buttonState.left {
-      // disable left button
-      buttonState.left = false
-      lastButtonState = (true, false)
-      stopTimer(leftTimerInterface, timer: leftTimer)
-    } else {
-      // enable left button
-      buttonState.left = true
-      startTimer(leftTimerInterface, timer: leftTimer)
-    }
-    // visually update button states
-    updateButtonStates()
-    // manage the top timer which stays on if either left/right button is in the on state
-    // if either button is on, make sure the timer is on
-    println("left: \(buttonState.left) right: \(buttonState.right) isTotalOn: \(totalTimer.on!)")
-    if buttonState.left || buttonState.right {
-      // only start timer if it is currently off
-      if !totalTimer.on! {
-        startTimer(totalTimerInterface, timer: totalTimer)
-      } else {
-        // the timer is already on and should be, leave it alone
-      }
-    } else {
-      // if both buttons are off, turn off top timer
-      stopTimer(totalTimerInterface, timer: totalTimer)
-    }
+    
+    tripleTimer.trigger(.Left)
+    // update button color states and the timer label
+    updateButtonColor(tripleTimer)
+//    // check the right button
+//    if buttonState.right {
+//      // if its on, turn it off
+//      buttonState.right = false
+//      // set this as the last button
+//      lastButtonState = (false, true)
+//      stopTimer(rightTimerInterface, timer: rightTimer)
+//    }
+//    // check this, left button if it's on
+//    if buttonState.left {
+//      // disable left button
+//      buttonState.left = false
+//      lastButtonState = (true, false)
+//      stopTimer(leftTimerInterface, timer: leftTimer)
+//    } else {
+//      // enable left button
+//      buttonState.left = true
+//      startTimer(leftTimerInterface, timer: leftTimer)
+//    }
+//    // visually update button states
+//    updateButtonStates()
+//    // manage the top timer which stays on if either left/right button is in the on state
+//    // if either button is on, make sure the timer is on
+//    println("left: \(buttonState.left) right: \(buttonState.right) isTotalOn: \(totalTimer.on!)")
+//    if buttonState.left || buttonState.right {
+//      // only start timer if it is currently off
+//      if !totalTimer.on! {
+//        startTimer(totalTimerInterface, timer: totalTimer)
+//      } else {
+//        // the timer is already on and should be, leave it alone
+//      }
+//    } else {
+//      // if both buttons are off, turn off top timer
+//      stopTimer(totalTimerInterface, timer: totalTimer)
+//    }
   }
   @IBAction func onNewButtonTap() {
+    tripleTimer.reset()
     // reset data in the timer models
     rightTimer.reset()
     leftTimer.reset()
@@ -158,26 +172,27 @@ class InterfaceController: WKInterfaceController {
     // set to current date to zero it out
     leftTimerInterface.setDate(NSDate())
     
-    // pick the correct last button state based on currently active button
-    if buttonState.left {
-      lastButtonState = (true, false)
-    }
-    if buttonState.right {
-      lastButtonState = (false, true)
-    }
-    
-    // reset the active button state
-    buttonState = (false, false)
-    
+//    // pick the correct last button state based on currently active button
+//    if buttonState.left {
+//      lastButtonState = (true, false)
+//    }
+//    if buttonState.right {
+//      lastButtonState = (false, true)
+//    }
+//    
+//    // reset the active button state
+//    buttonState = (false, false)
+//    
     
     totalTimer.stop()
     // set the lastDuration to the total timer so it says your last duration
     lastFeedDuration.interval = totalTimer.timeElapsed
     
     
-    // update with the last button state since there should be nothing active at this point
-    updateButtonStates()
-    
+    updateButtonColor(tripleTimer)
+//    // update with the last button state since there should be nothing active at this point
+//    updateButtonStates()
+//    
     updateLastFeedDateLabel(NSDate(), lastFeedDuration: lastFeedDuration)
     
     // stop top timer and reset it
@@ -188,6 +203,37 @@ class InterfaceController: WKInterfaceController {
     totalTimerInterface.setDate(NSDate())
   }
   
+  func updateButtonColor(timer:ToggleTimer) {
+    // first, reset all button to their passive state color
+    leftButton.setBackgroundColor(kPassiveStateColor)
+    rightButton.setBackgroundColor(kPassiveStateColor)
+    // put all timerInterfaces into their stopped state
+    leftTimerInterface.stop()
+    rightTimerInterface.stop()
+    
+    
+    // the button currently on gets the active state color
+    switch timer.currentOn {
+    case .Left:
+      leftButton.setBackgroundColor(kActiveStateColor)
+      leftTimerInterface.start()
+    case .Right:
+      rightButton.setBackgroundColor(kActiveStateColor)
+      rightTimerInterface.start()
+    case .None:
+      println("No button is on, we are completely paused")
+    }
+    
+    // button that was last on gets the last state color
+    switch timer.lastOn {
+    case .Left:
+      leftButton.setBackgroundColor(kLastStateColor)
+    case .Right:
+      rightButton.setBackgroundColor(kLastStateColor)
+    case .None:
+      println("no button was last on, this shouldn't happen")
+    }
+  }
   func updateButtonStates(){
     let entireState = (buttonState.left, lastButtonState.left, buttonState.right, lastButtonState.right)
     // set all buttons to default color first

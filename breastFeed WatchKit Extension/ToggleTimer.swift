@@ -9,7 +9,7 @@
 import Foundation
 
 class ToggleTimer {
-  var timers:(left:Timer, right:Timer, total:Timer)!
+  var timers:(left:Timer, right:Timer, total:Timer) = (Timer(),Timer(),Timer())
 //  var state = [Side.Left, State.None]
   
   var lastOn:Side = .None
@@ -68,6 +68,15 @@ class ToggleTimer {
   func restoreState() {
     println("Restore State")
     
+  }
+  
+  func reset() {
+    // remember the button state
+    lastOn = currentOn
+    // turn off the buttons
+    currentOn = .None
+    timers.left = Timer()
+    timers.right = Timer()
   }
   
 }
