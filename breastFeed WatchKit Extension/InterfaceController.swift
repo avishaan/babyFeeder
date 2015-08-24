@@ -206,17 +206,24 @@ class InterfaceController: WKInterfaceController {
   }
   
   func updateTimerInterface(timer:ToggleTimer) {
+    // stop all the timers to get to a consistent state
     leftTimerInterface.stop()
     rightTimerInterface.stop()
+    totalTimerInterface.stop()
     
+    // start the timer interface countdown
     switch timer.currentOn {
     case .Left:
       leftTimerInterface.start()
       // make sure the timer interface has the right info on it
       leftTimerInterface.setDate(timer.timers.left.date)
+      totalTimerInterface.start()
+      totalTimerInterface.setDate(timer.timers.total.date)
     case .Right:
       rightTimerInterface.start()
       rightTimerInterface.setDate(timer.timers.right.date)
+      totalTimerInterface.start()
+      totalTimerInterface.setDate(timer.timers.total.date)
     case .None:
       println("No timers on")
     }

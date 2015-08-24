@@ -31,6 +31,7 @@ class ToggleTimer {
     // initialize the two timers
     timers.left = Timer()
     timers.right = Timer()
+    timers.total = Timer()
     
     // TODO: restore state from previous state
   }
@@ -38,24 +39,25 @@ class ToggleTimer {
   func trigger(side:Side) {
     // store the currentOn as the one that was last on
     lastOn = currentOn
+    // turn off all timers to get us in a consistent state
+    timers.left.stop()
+    timers.right.stop()
+    timers.total.stop()
     // if the triggered side is the same as the currentOn side, then just pause the timers
     if side == currentOn {
-      timers.left.stop()
-      timers.right.stop()
       // set nothing as currentlyOn
       currentOn = .None
     } else {
       // set this side as current on
       currentOn = side
-      // turn off all timers
-      timers.left.stop()
-      timers.right.stop()
       // start the timer for this side
       switch side {
       case .Left:
         timers.left.start()
+        timers.total.start()
       case .Right:
         timers.right.start()
+        timers.total.start()
       default:
         println("This is an error")
       }
@@ -77,6 +79,7 @@ class ToggleTimer {
     currentOn = .None
     timers.left = Timer()
     timers.right = Timer()
+    timers.total = Timer()
   }
   
 }
