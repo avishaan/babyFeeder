@@ -260,73 +260,6 @@ class InterfaceController: WKInterfaceController {
       println("no button was last on, this shouldn't happen")
     }
   }
-  func updateButtonStates(){
-    let entireState = (buttonState.left, lastButtonState.left, buttonState.right, lastButtonState.right)
-    // set all buttons to default color first
-    leftButton.setBackgroundColor(kPassiveStateColor)
-    rightButton.setBackgroundColor(kPassiveStateColor)
-    switch entireState {
-    case (false, false, false, false):
-      // nothing is on
-      break;
-    case (true, false, false, true):
-      // left button active, right button was last
-      leftButton.setBackgroundColor(kActiveStateColor)
-      rightButton.setBackgroundColor(kLastStateColor)
-    case (false, true, true, false):
-      // left button in last state, right button active
-      leftButton.setBackgroundColor(kLastStateColor)
-      rightButton.setBackgroundColor(kActiveStateColor)
-    case (false, true, false, false):
-      // nothing active, left side was last
-      leftButton.setBackgroundColor(kLastStateColor)
-    case (false, false, false, true):
-      // nothing active, right side was last
-      rightButton.setBackgroundColor(kLastStateColor)
-    case (true, true, false, false), (true, false, false, false):
-      // if the left button is either both active and last or just active set left button as active
-      leftButton.setBackgroundColor(kActiveStateColor)
-    case (false, false, true, true), (false, false, true, false):
-      // if the right button is either both active and last or just active set right button as active
-      rightButton.setBackgroundColor(kActiveStateColor)
-    default:
-      println("ERROR, should not be in this state")
-    }
-    
-  }
-  // func checks the button states and update them with the correct color
-  // TODO remove use of this function
-  func showCurrentButtonState(buttonState:(left:Bool, right:Bool)) {
-    if buttonState.left {
-      leftButton.setBackgroundColor(kActiveStateColor)
-//      leftButton.setBackgroundColor(UIColor.clearColor())
-//      leftButton.setBackgroundImageNamed("animation")
-    } else {
-//      leftButton.setBackgroundColor(kPassiveStateColor)
-    }
-    if buttonState.right {
-      rightButton.setBackgroundColor(kActiveStateColor)
-//      rightButton.setBackgroundColor(UIColor.clearColor())
-//      rightButton.setBackgroundImageNamed("animation")
-    } else {
-//      rightButton.setBackgroundColor(kPassiveStateColor)
-    }
-  }
-  
-  func showLastUsedButton(lastButtonState:(left:Bool, right:Bool)) {
-    // see if any of the last button states are on, if they are go ahead and make the interface reflect that
-    if lastButtonState.left {
-      leftButton.setBackgroundColor(kLastStateColor)
-    } else {
-//      leftButton.setBackgroundColor(kPassiveStateColor)
-    }
-    if lastButtonState.right {
-      rightButton.setBackgroundColor(kLastStateColor)
-    } else {
-//      rightButton.setBackgroundColor(kPassiveStateColor)
-    }
-  }
-  
   // update the last feed date label with lastFeedDate as the date to set the date label to
   func updateLastFeedDateLabel(lastFeedDate:NSDate, lastFeedDuration:LastDuration) {
     // set now as our last feed
@@ -339,22 +272,6 @@ class InterfaceController: WKInterfaceController {
     // save date into persistance
     persistLastFeedDate(lastFeedDate)
     persistLastFeedDuration(lastFeedDuration.interval)
-  }
-  
-  func startTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
-    // make sure the timer interface has the right info on it
-    timerInterface.setDate(timer.date)
-    // start the timer interface counting
-    timerInterface.start()
-    // start the timer model counting
-    timer.start()
-  }
-  
-  func stopTimer(timerInterface:WKInterfaceTimer, timer:Timer) {
-    // pause the timer label
-    timerInterface.stop()
-    // pause the timer model counting
-    timer.stop()
   }
   
   func restoreLastFeedDuration() -> LastDuration {
