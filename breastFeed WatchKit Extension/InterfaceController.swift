@@ -72,6 +72,7 @@ class InterfaceController: WKInterfaceController {
     tripleTimer.trigger(.Right)
     // update button color states and the timer label
     updateButtonColor(tripleTimer)
+    updateTimerInterface(tripleTimer)
 //    
 //    // check on the left button
 //    if buttonState.left {
@@ -121,6 +122,7 @@ class InterfaceController: WKInterfaceController {
     tripleTimer.trigger(.Left)
     // update button color states and the timer label
     updateButtonColor(tripleTimer)
+    updateTimerInterface(tripleTimer)
 //    // check the right button
 //    if buttonState.right {
 //      // if its on, turn it off
@@ -203,6 +205,23 @@ class InterfaceController: WKInterfaceController {
     totalTimerInterface.setDate(NSDate())
   }
   
+  func updateTimerInterface(timer:ToggleTimer) {
+    leftTimerInterface.stop()
+    rightTimerInterface.stop()
+    
+    switch timer.currentOn {
+    case .Left:
+      leftTimerInterface.start()
+      // make sure the timer interface has the right info on it
+      leftTimerInterface.setDate(timer.timers.left.date)
+    case .Right:
+      rightTimerInterface.start()
+      rightTimerInterface.setDate(timer.timers.right.date)
+    case .None:
+      println("No timers on")
+    }
+
+  }
   func updateButtonColor(timer:ToggleTimer) {
     // first, reset all button to their passive state color
     leftButton.setBackgroundColor(kPassiveStateColor)
