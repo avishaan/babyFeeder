@@ -48,7 +48,8 @@ class FeedTimesTableViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // Return the number of rows in the section.
-    return self.feedTimes.count
+//    return self.feedTimes.count
+    return 4
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -59,7 +60,8 @@ class FeedTimesTableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! FeedTimeTableViewCell
     
     // get the correct time for this table view
-    let time = feedTimes[indexPath.row]
+//    let time = feedTimes[indexPath.row]
+    let time = "10"
   
   // Configure the cell...
     cell.testLabel.text = time

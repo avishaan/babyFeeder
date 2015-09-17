@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if let duration = dataFromWatch["durationInSeconds"] as? Double, endDate = dataFromWatch["endDate"] as? NSDate  {
       // with both of these pieces of information from the watch, save it to the db
       var feedData = FeedData()
-      feedData.side = "right"
+      feedData.durationInSeconds = duration;
+      feedData.endTime = endDate
       
       realm.write {
         self.realm.add(feedData)
