@@ -180,6 +180,13 @@ class InterfaceController: WKInterfaceController {
     totalTimerInterface.setDate(NSDate())
     
     updateButtonColor(tripleTimer)
+    
+    // send feed information to iOS app for storage
+    let dict:[String:String] = ["key": "value", "request": "value"]
+    WKInterfaceController.openParentApplication(dict, reply: { (replyData, error) -> Void in
+      println("data response from app \(replyData)")
+      
+    })
   }
   
   func updateTimerInterface(timer:ToggleTimer) {

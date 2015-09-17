@@ -12,7 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  
+  func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    let dataFromWatch = userInfo as! [String:String]
+    
+    if let value = dataFromWatch["key"] {
+      println("watch says \(value)")
+    }
+    
+    // respond back to the watch
+    reply(["response": "hello from app to watch"]);
+    
+  }
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
