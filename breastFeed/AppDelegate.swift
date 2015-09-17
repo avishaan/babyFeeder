@@ -7,12 +7,35 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  let realm = Realm()
+  
+  
+  func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    
+    let dataFromWatch = userInfo as! [String:AnyObject]
+    
+    // make sure a date and duration came through
+    if let duration = dataFromWatch["durationInSeconds"] as? Double, endDate = dataFromWatch["endDate"] as? NSDate  {
+      // with both of these pieces of information from the watch, save it to the db
+      var feedData = FeedData()
+      feedData.durationInSeconds = duration;
+      feedData.endTime = endDate
+      
+      realm.write {
+        self.realm.add(feedData)
+      }
+    }
+    
+    // respond back to the watch
+    reply(["response": "hello from app to watch"]);
+    
+  }
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
