@@ -27,7 +27,7 @@
 		82A9D1491B8AE84B006FBCF3 /* ToggleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A9D1481B8AE84B006FBCF3 /* ToggleTimer.swift */; };
 		82C0DDF31BA9F2A90006DEBD /* FeedTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C0DDF21BA9F2A90006DEBD /* FeedTimesTableViewController.swift */; };
 		82C0DDF51BA9F51A0006DEBD /* FeedTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C0DDF41BA9F51A0006DEBD /* FeedTimeTableViewCell.swift */; };
-		82C0DDF71BA9F99E0006DEBD /* FeedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C0DDF61BA9F99E0006DEBD /* FeedTime.swift */; };
+		82C0DDF71BA9F99E0006DEBD /* FeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C0DDF61BA9F99E0006DEBD /* FeedData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +97,7 @@
 		82A9D1481B8AE84B006FBCF3 /* ToggleTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleTimer.swift; sourceTree = "<group>"; };
 		82C0DDF21BA9F2A90006DEBD /* FeedTimesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTimesTableViewController.swift; sourceTree = "<group>"; };
 		82C0DDF41BA9F51A0006DEBD /* FeedTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTimeTableViewCell.swift; sourceTree = "<group>"; };
-		82C0DDF61BA9F99E0006DEBD /* FeedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTime.swift; sourceTree = "<group>"; };
+		82C0DDF61BA9F99E0006DEBD /* FeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedData.swift; sourceTree = "<group>"; };
 		F1B7C0ECB5404DEA7D3C6407 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,7 +157,7 @@
 				8266FA6B1B70B2F50043365F /* AppDelegate.swift */,
 				8266FA6D1B70B2F50043365F /* ViewController.swift */,
 				82C0DDF41BA9F51A0006DEBD /* FeedTimeTableViewCell.swift */,
-				82C0DDF61BA9F99E0006DEBD /* FeedTime.swift */,
+				82C0DDF61BA9F99E0006DEBD /* FeedData.swift */,
 				8266FA6F1B70B2F50043365F /* Main.storyboard */,
 				82C0DDF21BA9F2A90006DEBD /* FeedTimesTableViewController.swift */,
 				8266FA721B70B2F50043365F /* Images.xcassets */,
@@ -465,7 +465,7 @@
 			files = (
 				82C0DDF51BA9F51A0006DEBD /* FeedTimeTableViewCell.swift in Sources */,
 				82C0DDF31BA9F2A90006DEBD /* FeedTimesTableViewController.swift in Sources */,
-				82C0DDF71BA9F99E0006DEBD /* FeedTime.swift in Sources */,
+				82C0DDF71BA9F99E0006DEBD /* FeedData.swift in Sources */,
 				8266FA6E1B70B2F50043365F /* ViewController.swift in Sources */,
 				8266FA6C1B70B2F50043365F /* AppDelegate.swift in Sources */,
 			);

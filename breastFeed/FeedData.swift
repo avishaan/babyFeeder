@@ -9,8 +9,8 @@
 import Foundation
 import RealmSwift
 
-// Dog model
-class FeedTime: Object {
-  dynamic var side = ""
-  dynamic var birthdate = NSDate(timeIntervalSince1970: 1)
+// FeedData model
+class FeedData: Object {
+  dynamic var durationInSeconds:Double = 0
+  dynamic var endTime:NSDate = NSDate()
 }

@@ -11,7 +11,6 @@ import RealmSwift
 
 class FeedTimesTableViewController: UITableViewController {
   
-  var feedTimes = ["One", "two", "three"]
   let realm = Realm()
   
   
@@ -24,13 +23,13 @@ class FeedTimesTableViewController: UITableViewController {
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    var feedTime = FeedTime()
-    feedTime.side = "right"
-    
-    realm.write {
-      self.realm.add(feedTime)
-    }
-    
+//    var feedTime = FeedTime()
+//    feedTime.side = "right"
+//    
+//    realm.write {
+//      self.realm.add(feedTime)
+//    }
+//    
     println("test")
     
   }

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+  let realm = Realm()
   
   
   func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
@@ -21,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // make sure a date and duration came through
     if let duration = dataFromWatch["durationInSeconds"] as? Double, endDate = dataFromWatch["endDate"] as? NSDate  {
       // with both of these pieces of information from the watch, save it to the db
+      var feedData = FeedData()
+      feedData.side = "right"
+      
+      realm.write {
+        self.realm.add(feedData)
+      }
     }
     
     // respond back to the watch
