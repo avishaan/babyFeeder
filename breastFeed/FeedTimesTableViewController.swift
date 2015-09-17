@@ -31,6 +31,8 @@ class FeedTimesTableViewController: UITableViewController {
       self.realm.add(feedTime)
     }
     
+    println("test")
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -50,6 +52,9 @@ class FeedTimesTableViewController: UITableViewController {
     return self.feedTimes.count
   }
   
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    println("row clicked")
+  }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cellIdentifier = "feedCell"
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! FeedTimeTableViewCell

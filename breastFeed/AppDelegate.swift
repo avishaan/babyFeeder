@@ -13,10 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
   
+  
   func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
-    let dataFromWatch = userInfo as! [String:String]
+    let dataFromWatch = userInfo as! [String:AnyObject]
     
-    if let value = dataFromWatch["key"] {
+    if let value = dataFromWatch["duration"] as? Double {
       println("watch says \(value)")
     }
     
