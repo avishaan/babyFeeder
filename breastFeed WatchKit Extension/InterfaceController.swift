@@ -181,9 +181,14 @@ class InterfaceController: WKInterfaceController {
     
     updateButtonColor(tripleTimer)
     
+    sendFeedDataToPhone(interval: lastFeedDuration.interval)
+    
+  }
+  
+  func sendFeedDataToPhone(#interval:Double) {
     // send feed information to iOS app for storage
-    let dict:[String:String] = ["key": "value", "request": "value"]
-    WKInterfaceController.openParentApplication(dict, reply: { (replyData, error) -> Void in
+    let request:[String:String] = ["key": "value", "request": "value"]
+    WKInterfaceController.openParentApplication(request, reply: { (replyData, error) -> Void in
       println("data response from app \(replyData)")
       
     })
