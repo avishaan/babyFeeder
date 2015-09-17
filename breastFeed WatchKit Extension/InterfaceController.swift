@@ -187,7 +187,7 @@ class InterfaceController: WKInterfaceController {
   
   func sendFeedDataToPhone(#interval:Double) {
     // send feed information to iOS app for storage
-    let request:[String:AnyObject] = ["duration": interval, "date": NSDate()]
+    let request:[String:AnyObject] = ["durationInSeconds": interval, "endDate": NSDate()]
     WKInterfaceController.openParentApplication(request, reply: { (replyData, error) -> Void in
       println("data response from app \(replyData)")
       

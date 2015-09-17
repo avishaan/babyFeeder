@@ -15,10 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    
     let dataFromWatch = userInfo as! [String:AnyObject]
     
-    if let value = dataFromWatch["duration"] as? Double {
-      println("watch says \(value)")
+    // make sure a date and duration came through
+    if let duration = dataFromWatch["durationInSeconds"] as? Double, endDate = dataFromWatch["endDate"] as? NSDate  {
+      // with both of these pieces of information from the watch, save it to the db
     }
     
     // respond back to the watch
