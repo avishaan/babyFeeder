@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Charts
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var barChartView: BarChartView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    barChartView.noDataText = "We need data for the bar chart"
   }
 
   override func didReceiveMemoryWarning() {
