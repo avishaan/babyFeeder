@@ -30,12 +30,12 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   func setChart(#feedData:Results<FeedData>) {
-    barChartView.noDataText = "You need to provide data for the chart."
     var leftYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Left)
     var rightYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Right)
     
     leftYAxis.enabled = false
     rightYAxis.enabled = false
+    barChartView.noDataText = "You need to provide data for the chart."
     
     var dataEntries:[BarChartDataEntry] = []
     for i in 0..<feedData.count {
@@ -60,6 +60,11 @@ class ViewController: UIViewController {
     
     let chartData = BarChartData(xVals: dataX, dataSet: chartDataSet)
     barChartView.data = chartData
+    
+    // only afer setting the data can we tell the max data to show
+    barChartView.setVisibleXRangeMaximum(3)
+    barChartView.moveViewToX(dataX.count - 1)
+    barChartView.dragEnabled = true
     
   }
   
