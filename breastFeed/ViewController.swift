@@ -74,6 +74,8 @@ class ViewController: UIViewController {
     let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "Time Fed")
     // settings for this specific data set
     chartDataSet.drawCubicEnabled = true
+    chartDataSet.drawFilledEnabled = true
+//    chartDataSet.drawValuesEnabled = true
     chartDataSet.lineWidth = 2.0;
     chartDataSet.circleRadius = 5.0;
     chartDataSet.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1.0)
