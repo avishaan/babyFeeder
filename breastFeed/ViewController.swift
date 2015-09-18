@@ -21,17 +21,15 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
     // get data from db
     let feedData = realm.objects(FeedData)
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
     // add bar chart data
-    setChart(months, values: unitsSold, feedData: feedData)
+    setChart(feedData: feedData)
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  func setChart(dataPoints: [String], values: [Double], feedData:Results<FeedData>) {
+  func setChart(#feedData:Results<FeedData>) {
     barChartView.noDataText = "You need to provide data for the chart."
     var leftYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Left)
     
