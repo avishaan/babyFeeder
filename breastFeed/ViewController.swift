@@ -58,6 +58,8 @@ class ViewController: UIViewController {
     rightYAxis.drawAxisLineEnabled = false
     xAxis.drawGridLinesEnabled = false
     xAxis.drawAxisLineEnabled = false
+    xAxis.labelTextColor = UIColor.whiteColor()
+    xAxis.labelFont = UIFont.systemFontOfSize(16)
     
     chartView.noDataText = "Start using the watch app and see your data here!"
     chartView.descriptionText = ""
@@ -95,6 +97,8 @@ class ViewController: UIViewController {
     chartDataSet.fillAlpha = 100
     chartDataSet.cubicIntensity = 0.2
     chartDataSet.circleColors = [kActiveStateColor]
+    chartDataSet.valueTextColor = UIColor.whiteColor()
+    chartDataSet.valueFont = UIFont.systemFontOfSize(13)
     // remove legend
     chartView.legend.enabled = false
     // format the duration data
