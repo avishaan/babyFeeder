@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var chartView: LineChartView!
   
-  let kActiveStateColor = UIColor(red: 206/255, green: 104/255, blue: 107/255, alpha: 1.0)
+  let kActiveStateColor = UIColor(red:0.83, green:0.309, blue:0.315, alpha:1) 
   
   let realm = Realm()
   
