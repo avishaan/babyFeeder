@@ -145,15 +145,15 @@
                     <items>
                         <group alignment="left" id="t8f-Gd-c4y">
                             <items>
-                                <label width="1" alignment="left" text="🍼👶🏽" id="9pP-qz-GvV">
-                                    <fontDescription key="font" type="system" pointSize="44"/>
-                                </label>
+                                <label width="39.5" alignment="left" text="Last Feed:" minimumScaleFactor="0.30000000000000016" id="d4H-e9-hql"/>
+                                <label width="76.5" alignment="left" text="Label" textAlignment="right" minimumScaleFactor="0.50000000000000011" id="zb5-kv-RTV"/>
                             </items>
                         </group>
                         <group alignment="left" id="uCw-4Q-Ouw">
                             <items>
-                                <label width="39.5" alignment="left" text="Last Feed:" minimumScaleFactor="0.30000000000000016" id="d4H-e9-hql"/>
-                                <label width="93.5" alignment="left" text="Label" textAlignment="right" minimumScaleFactor="0.50000000000000011" id="zb5-kv-RTV"/>
+                                <label width="1" alignment="left" text="🍼👶🏽" id="9pP-qz-GvV">
+                                    <fontDescription key="font" type="system" pointSize="67"/>
+                                </label>
                             </items>
                         </group>
                     </items>
