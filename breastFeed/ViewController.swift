@@ -19,6 +19,20 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    // register notification when application becomes active from background state
+    NSNotificationCenter.defaultCenter().addObserver(
+      self,
+      selector: "applicationDidBecomeActive:",
+      name: UIApplicationDidBecomeActiveNotification,
+      object: nil)
+    // get data from db
+    let feedData = realm.objects(FeedData)
+    // add bar chart data
+    setChart(feedData: feedData)
+    
+  }
+  func applicationDidBecomeActive(notification: NSNotification) {
+    // do something
     // get data from db
     let feedData = realm.objects(FeedData)
     // add bar chart data
