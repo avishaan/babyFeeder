@@ -92,6 +92,7 @@ class ViewController: UIViewController {
     chartDataSet.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1.0)
     chartDataSet.setColor(kActiveStateColor)
     chartDataSet.fillColor = kActiveStateColor
+    chartDataSet.fillAlpha = 100
     chartDataSet.cubicIntensity = 0.2
     chartDataSet.circleColors = [kActiveStateColor]
     // remove legend
