@@ -46,12 +46,21 @@ class ViewController: UIViewController {
   func setChart(#feedData:Results<FeedData>) {
     var leftYAxis = chartView.getAxis(ChartYAxis.AxisDependency.Left)
     var rightYAxis = chartView.getAxis(ChartYAxis.AxisDependency.Right)
+    var xAxis = chartView.xAxis
     
     leftYAxis.enabled = false
+    leftYAxis.drawGridLinesEnabled = false
+    leftYAxis.drawAxisLineEnabled = false
     rightYAxis.enabled = false
+    rightYAxis.drawGridLinesEnabled = false
+    rightYAxis.drawAxisLineEnabled = false
+    xAxis.drawGridLinesEnabled = false
+    xAxis.drawAxisLineEnabled = false
+    
     chartView.noDataText = "Start using the watch app and see your data here!"
     chartView.descriptionText = "Your baby feed timings"
     chartView.backgroundColor = UIColor.whiteColor()
+    chartView.drawGridBackgroundEnabled = false
     chartView.gridBackgroundColor = UIColor.whiteColor()
     
     var dataEntries:[ChartDataEntry] = []
