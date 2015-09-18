@@ -12,12 +12,22 @@ import Foundation
 
 class GlanceController: WKInterfaceController {
   
+  var userDefaults = NSUserDefaults.standardUserDefaults()
+  
   @IBOutlet weak var lastFeedLabel: WKInterfaceLabel!
   override func awakeWithContext(context: AnyObject?) {
     super.awakeWithContext(context)
     
     // Configure interface objects here.
-    var lastFeed = restoreLastFeedDate()
+    var lastFeedDate = restoreLastFeedDate()
+    var lastFeedDuration = restoreLastFeedDuration()
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "h:mm a"
+    let lastFeedDateString = dateFormatter.stringFromDate(lastFeedDate)
+    
+    // combine the last feed date with the last feed duration
+    lastFeedLabel.setText(lastFeedDateString + " for " + lastFeedDuration.text)
+
     
   }
   
@@ -32,7 +42,6 @@ class GlanceController: WKInterfaceController {
   }
   
   func restoreLastFeedDate() -> NSDate {
-    var userDefaults = NSUserDefaults.standardUserDefaults()
     let lastFeed = userDefaults.objectForKey("lastFeedDate") as? NSDate
     if lastFeed == nil {
       // if last feed is nil, it's our first time accessing it and set it to now
@@ -42,5 +51,16 @@ class GlanceController: WKInterfaceController {
       return lastFeed!
     }
   }
-  
+  func restoreLastFeedDuration() -> LastDuration {
+    println("restore last feed duration")
+    let lastFeed = userDefaults.objectForKey("lastFeedDuration") as? Double
+    if lastFeed == nil {
+      // if last feed is nil, it's our first time accessing it and set it to now
+      return LastDuration()
+    } else {
+      // return the retreived value
+      return LastDuration(startDuration: lastFeed!)
+    }
+  }
+ 
 }
