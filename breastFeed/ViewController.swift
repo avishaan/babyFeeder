@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     
     chartView.noDataText = "Start using the watch app and see your data here!"
     chartView.descriptionText = ""
-    chartView.backgroundColor = UIColor.whiteColor()
+    chartView.backgroundColor = UIColor.blackColor()
     chartView.drawGridBackgroundEnabled = false
     chartView.gridBackgroundColor = UIColor.whiteColor()
     
@@ -87,8 +87,8 @@ class ViewController: UIViewController {
     chartDataSet.drawCubicEnabled = true
     chartDataSet.drawFilledEnabled = true
 //    chartDataSet.drawValuesEnabled = true
-    chartDataSet.lineWidth = 2.0;
-    chartDataSet.circleRadius = 5.0;
+    chartDataSet.lineWidth = 5.0;
+    chartDataSet.circleRadius = 10.0;
     chartDataSet.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1.0)
     chartDataSet.setColor(kActiveStateColor)
     chartDataSet.fillColor = kActiveStateColor
