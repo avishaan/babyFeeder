@@ -74,7 +74,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="breastFeed_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group width="1" height="151" alignment="left" backgroundImage="gradientBackground" layout="vertical" radius="0.0" id="91Q-cg-OAB">
+                        <group width="1" height="151" alignment="left" alpha="0.84999999999999987" backgroundImage="gradientBackground" layout="vertical" radius="0.0" id="91Q-cg-OAB">
                             <items>
                                 <group width="1" alignment="left" id="Vcz-oU-cfe">
                                     <items>
@@ -143,14 +143,24 @@
             <objects>
                 <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="breastFeed_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y"/>
+                        <group alignment="left" id="t8f-Gd-c4y">
+                            <items>
+                                <label width="39.5" alignment="left" text="Last Feed:" minimumScaleFactor="0.30000000000000016" id="d4H-e9-hql"/>
+                                <label width="76.5" alignment="left" text="Label" textAlignment="right" minimumScaleFactor="0.50000000000000011" id="zb5-kv-RTV"/>
+                            </items>
+                        </group>
                         <group alignment="left" id="uCw-4Q-Ouw">
                             <items>
-                                <label alignment="left" text="Label" id="WWp-Rb-c6E"/>
+                                <label width="1" alignment="left" text="🍼👶🏽" id="9pP-qz-GvV">
+                                    <fontDescription key="font" type="system" pointSize="67"/>
+                                </label>
                             </items>
                         </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="lastFeedLabel" destination="zb5-kv-RTV" id="fDm-bu-7jh"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="235" y="672"/>
