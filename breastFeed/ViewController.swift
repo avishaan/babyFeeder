@@ -33,6 +33,9 @@ class ViewController: UIViewController {
   }
   func setChart(dataPoints: [String], values: [Double], feedData:Results<FeedData>) {
     barChartView.noDataText = "You need to provide data for the chart."
+    var leftYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Left)
+    
+    leftYAxis.enabled = false
     
     var dataEntries:[BarChartDataEntry] = []
     for i in 0..<feedData.count {
