@@ -12,7 +12,7 @@ import RealmSwift
 
 class ViewController: UIViewController {
 
-  @IBOutlet weak var barChartView: LineChartView!
+  @IBOutlet weak var chartView: LineChartView!
   
   let realm = Realm()
   
@@ -44,15 +44,15 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   func setChart(#feedData:Results<FeedData>) {
-    var leftYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Left)
-    var rightYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Right)
+    var leftYAxis = chartView.getAxis(ChartYAxis.AxisDependency.Left)
+    var rightYAxis = chartView.getAxis(ChartYAxis.AxisDependency.Right)
     
     leftYAxis.enabled = false
     rightYAxis.enabled = false
-    barChartView.noDataText = "Start using the watch app and see your data here!"
-    barChartView.descriptionText = "Your baby feed timings"
-    barChartView.backgroundColor = UIColor.whiteColor()
-    barChartView.gridBackgroundColor = UIColor.whiteColor()
+    chartView.noDataText = "Start using the watch app and see your data here!"
+    chartView.descriptionText = "Your baby feed timings"
+    chartView.backgroundColor = UIColor.whiteColor()
+    chartView.gridBackgroundColor = UIColor.whiteColor()
     
     var dataEntries:[ChartDataEntry] = []
     for i in 0..<feedData.count {
@@ -81,18 +81,18 @@ class ViewController: UIViewController {
     chartDataSet.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1.0)
     chartDataSet.cubicIntensity = 0.2
     // remove legend
-    barChartView.legend.enabled = false
+    chartView.legend.enabled = false
     // format the duration data
     chartDataSet.valueFormatter = FeedDurationFormatter.sharedInstance
     
     let chartData = LineChartData(xVals: dataX, dataSet: chartDataSet)
-    barChartView.data = chartData
+    chartView.data = chartData
     
     // only afer setting the data can we tell the max data to show
-    barChartView.setVisibleXRangeMaximum(4)
+    chartView.setVisibleXRangeMaximum(4)
     // try to align the initial view to prevent as much skipping
-    barChartView.moveViewToX(dataX.count - 1)
-    barChartView.dragEnabled = true
+    chartView.moveViewToX(dataX.count - 1)
+    chartView.dragEnabled = true
     
   }
   

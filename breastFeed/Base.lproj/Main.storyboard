@@ -67,7 +67,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="barChartView" destination="IL5-wq-3lf" id="eFH-nG-6Lt"/>
+                        <outlet property="chartView" destination="IL5-wq-3lf" id="Lwn-sp-mMC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
