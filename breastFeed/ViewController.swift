@@ -32,8 +32,10 @@ class ViewController: UIViewController {
   func setChart(#feedData:Results<FeedData>) {
     barChartView.noDataText = "You need to provide data for the chart."
     var leftYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Left)
+    var rightYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Right)
     
     leftYAxis.enabled = false
+    rightYAxis.enabled = false
     
     var dataEntries:[BarChartDataEntry] = []
     for i in 0..<feedData.count {
@@ -54,8 +56,6 @@ class ViewController: UIViewController {
     
     let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Time Fed")
     // format the duration data
-    var feedDurationFormatter = NSNumberFormatter()
-    feedDurationFormatter.numberStyle = .PercentStyle
     chartDataSet.valueFormatter = FeedDurationFormatter.sharedInstance
     
     let chartData = BarChartData(xVals: dataX, dataSet: chartDataSet)
