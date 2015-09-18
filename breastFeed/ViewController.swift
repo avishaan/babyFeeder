@@ -35,7 +35,10 @@ class ViewController: UIViewController {
     
     leftYAxis.enabled = false
     rightYAxis.enabled = false
-    barChartView.noDataText = "You need to provide data for the chart."
+    barChartView.noDataText = "Start using the watch app and see your data here!"
+    barChartView.descriptionText = "Your baby feed timings"
+    barChartView.backgroundColor = UIColor.whiteColor()
+    barChartView.gridBackgroundColor = UIColor.whiteColor()
     
     var dataEntries:[BarChartDataEntry] = []
     for i in 0..<feedData.count {
@@ -55,6 +58,8 @@ class ViewController: UIViewController {
     }
     
     let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Time Fed")
+    // remove legend
+    barChartView.legend.enabled = false
     // format the duration data
     chartDataSet.valueFormatter = FeedDurationFormatter.sharedInstance
     
