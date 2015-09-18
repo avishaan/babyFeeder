@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
     // date formatter for X axis
     let dateFormatter = NSDateFormatter()
-    dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+    dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
     dateFormatter.timeStyle = .ShortStyle
     
     var dataX:[String] = []
