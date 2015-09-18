@@ -39,11 +39,7 @@ class ViewController: UIViewController {
     
     var dataEntries:[BarChartDataEntry] = []
     for i in 0..<feedData.count {
-      var feedDataDuration = feedData[i].durationInSeconds
-      var minutes = floor(feedDataDuration / 60)
-      var seconds = round(feedDataDuration - minutes * 60)
-      var timeString = "\(minutes)m \(seconds)s"
-      let dataEntry = BarChartDataEntry(value: feedDataDuration, xIndex: i)
+      let dataEntry = BarChartDataEntry(value: feedData[i].durationInSeconds, xIndex: i)
       dataEntries.append(dataEntry)
     }
     // date formatter for X axis
