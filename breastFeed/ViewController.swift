@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     xAxis.drawAxisLineEnabled = false
     
     chartView.noDataText = "Start using the watch app and see your data here!"
-    chartView.descriptionText = "Your baby feed timings"
+//    chartView.descriptionText = "Your baby feed timings"
     chartView.backgroundColor = UIColor.whiteColor()
     chartView.drawGridBackgroundEnabled = false
     chartView.gridBackgroundColor = UIColor.whiteColor()
