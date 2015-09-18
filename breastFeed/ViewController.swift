@@ -36,23 +36,60 @@ class ViewController: UIViewController {
     
     var dataEntries:[BarChartDataEntry] = []
     for i in 0..<feedData.count {
-      let dataEntry = BarChartDataEntry(value: feedData[i].durationInSeconds, xIndex: i)
+      var feedDataDuration = feedData[i].durationInSeconds
+      var minutes = floor(feedDataDuration / 60)
+      var seconds = round(feedDataDuration - minutes * 60)
+      var timeString = "\(minutes)m \(seconds)s"
+      let dataEntry = BarChartDataEntry(value: feedDataDuration, xIndex: i)
       dataEntries.append(dataEntry)
     }
+    // date formatter for X axis
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
     dateFormatter.timeStyle = .ShortStyle
     
     var dataX:[String] = []
     for i in 0..<feedData.count {
+      // have data entry be a date string from the end date passed in
       let dataEntry = dateFormatter.stringFromDate(feedData[i].endTime)
       dataX.append(dataEntry)
     }
     
     let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Time Fed")
+    // format the duration data
+    var feedDurationFormatter = NSNumberFormatter()
+    feedDurationFormatter.numberStyle = .PercentStyle
+    chartDataSet.valueFormatter = FeedDurationFormatter.sharedInstance
+    
     let chartData = BarChartData(xVals: dataX, dataSet: chartDataSet)
     barChartView.data = chartData
     
   }
+  
+  class FeedDurationFormatter: NSNumberFormatter {
+    required init(coder aDecoder: NSCoder) {
+      super.init(coder: aDecoder)
+    }
+    
+    override init() {
+      super.init()
+      self.locale = NSLocale.currentLocale()
+    }
+    
+    override func stringFromNumber(duration: NSNumber) -> String? {
+      let duration = duration.floatValue
+      let minutes = floor(duration / 60)
+      let seconds = duration % 60.0
+      
+      // time string, we don't want the decimals
+      let timeString = String(format: "%01dm %01ds", Int(minutes), Int(seconds))
+      
+      return timeString
+    }
+    
+    // Swift 1.2 or above
+    static let sharedInstance = FeedDurationFormatter()
+  }
+
 }
 
