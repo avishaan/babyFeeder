@@ -15,7 +15,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var chartView: LineChartView!
   
   let kActiveStateColor = UIColor(red:0.83, green:0.309, blue:0.315, alpha:1)
-  let kDarkGrey = UIColor(red:0.22, green:0.219, blue:0.219, alpha:1)
+  let kDarkGrey = UIColor(red:0.152, green:0.152, blue:0.152, alpha:1)
   
   let realm = Realm()
   
@@ -32,6 +32,9 @@ class ViewController: UIViewController {
     let feedData = realm.objects(FeedData)
     // add bar chart data
     setChart(feedData: feedData)
+    
+    // set background to dark grey
+    self.view.backgroundColor = kDarkGrey
     
   }
   func applicationDidBecomeActive(notification: NSNotification) {
@@ -64,7 +67,7 @@ class ViewController: UIViewController {
     
     chartView.noDataText = "Start using the watch app and see your data here!"
     chartView.descriptionText = ""
-    chartView.backgroundColor = UIColor.blackColor()
+    chartView.backgroundColor = kDarkGrey
     chartView.drawGridBackgroundEnabled = false
     chartView.gridBackgroundColor = UIColor.whiteColor()
     
