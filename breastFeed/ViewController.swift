@@ -12,7 +12,7 @@ import RealmSwift
 
 class ViewController: UIViewController {
 
-  @IBOutlet weak var barChartView: BarChartView!
+  @IBOutlet weak var barChartView: LineChartView!
   
   let realm = Realm()
   
@@ -54,9 +54,9 @@ class ViewController: UIViewController {
     barChartView.backgroundColor = UIColor.whiteColor()
     barChartView.gridBackgroundColor = UIColor.whiteColor()
     
-    var dataEntries:[BarChartDataEntry] = []
+    var dataEntries:[ChartDataEntry] = []
     for i in 0..<feedData.count {
-      let dataEntry = BarChartDataEntry(value: feedData[i].durationInSeconds, xIndex: i)
+      let dataEntry = ChartDataEntry(value: feedData[i].durationInSeconds, xIndex: i)
       dataEntries.append(dataEntry)
     }
     // date formatter for X axis
@@ -71,13 +71,21 @@ class ViewController: UIViewController {
       dataX.append(dataEntry)
     }
     
-    let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Time Fed")
+    let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "Time Fed")
+    // settings for this specific data set
+    chartDataSet.drawCubicEnabled = true
+    chartDataSet.lineWidth = 2.0;
+    chartDataSet.circleRadius = 5.0;
+    chartDataSet.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1.0)
+    chartDataSet.setColor(UIColor(red: 104/255, green: 241/255, blue: 175/255, alpha: 1.0))
+    chartDataSet.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1.0)
+    chartDataSet.cubicIntensity = 0.2
     // remove legend
     barChartView.legend.enabled = false
     // format the duration data
     chartDataSet.valueFormatter = FeedDurationFormatter.sharedInstance
     
-    let chartData = BarChartData(xVals: dataX, dataSet: chartDataSet)
+    let chartData = LineChartData(xVals: dataX, dataSet: chartDataSet)
     barChartView.data = chartData
     
     // only afer setting the data can we tell the max data to show
