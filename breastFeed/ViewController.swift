@@ -32,8 +32,6 @@ class ViewController: UIViewController {
   func setChart(#feedData:Results<FeedData>) {
     var leftYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Left)
     var rightYAxis = barChartView.getAxis(ChartYAxis.AxisDependency.Right)
-    // max values to show on the chart at any time
-    let maxValues:CGFloat = 4
     
     leftYAxis.enabled = false
     rightYAxis.enabled = false
@@ -69,9 +67,9 @@ class ViewController: UIViewController {
     barChartView.data = chartData
     
     // only afer setting the data can we tell the max data to show
-    barChartView.setVisibleXRangeMaximum(maxValues)
+    barChartView.setVisibleXRangeMaximum(4)
     // try to align the initial view to prevent as much skipping
-    barChartView.moveViewToX((dataX.count - 1) - (Int(maxValues)))
+    barChartView.moveViewToX(dataX.count - 1)
     barChartView.dragEnabled = true
     
   }
