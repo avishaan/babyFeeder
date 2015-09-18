@@ -14,6 +14,8 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var chartView: LineChartView!
   
+  let kActiveStateColor = UIColor(red: 206/255, green: 104/255, blue: 107/255, alpha: 1.0)
+  
   let realm = Realm()
   
   override func viewDidLoad() {
@@ -58,7 +60,7 @@ class ViewController: UIViewController {
     xAxis.drawAxisLineEnabled = false
     
     chartView.noDataText = "Start using the watch app and see your data here!"
-//    chartView.descriptionText = "Your baby feed timings"
+    chartView.descriptionText = ""
     chartView.backgroundColor = UIColor.whiteColor()
     chartView.drawGridBackgroundEnabled = false
     chartView.gridBackgroundColor = UIColor.whiteColor()
@@ -88,9 +90,10 @@ class ViewController: UIViewController {
     chartDataSet.lineWidth = 2.0;
     chartDataSet.circleRadius = 5.0;
     chartDataSet.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1.0)
-    chartDataSet.setColor(UIColor(red: 104/255, green: 241/255, blue: 175/255, alpha: 1.0))
-    chartDataSet.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1.0)
+    chartDataSet.setColor(kActiveStateColor)
+    chartDataSet.fillColor = kActiveStateColor
     chartDataSet.cubicIntensity = 0.2
+    chartDataSet.circleColors = [kActiveStateColor]
     // remove legend
     chartView.legend.enabled = false
     // format the duration data
