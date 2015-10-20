@@ -115,6 +115,8 @@ class ViewController: UIViewController {
     chartView.setVisibleXRangeMaximum(4)
     // try to align the initial view to prevent as much skipping
     chartView.moveViewToX(dataX.count - 1)
+		// make sure there is padding so that points near the edge aren't cut off
+		chartView.setExtraOffsets(left: 15, top: 0, right: 15, bottom: 0)
     chartView.dragEnabled = true
     
   }
