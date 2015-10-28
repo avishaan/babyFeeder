@@ -64,6 +64,7 @@ class ViewController: UIViewController {
     xAxis.drawAxisLineEnabled = false
     xAxis.labelTextColor = UIColor.whiteColor()
     xAxis.labelFont = UIFont.systemFontOfSize(16)
+		xAxis.avoidFirstLastClippingEnabled = true
     
     chartView.noDataText = "Start using the watch app and see your data here!"
     chartView.descriptionText = ""
@@ -113,9 +114,14 @@ class ViewController: UIViewController {
     
     // only afer setting the data can we tell the max data to show
     chartView.setVisibleXRangeMaximum(4)
+//		chartView.setVisibleXRangeMinimum(1)
     // try to align the initial view to prevent as much skipping
     chartView.moveViewToX(dataX.count - 1)
+		//chartView.centerViewTo(xIndex: dataX.count-1, yValue: dataEntries[dataX.count-1].value, axis: chartView.xAxis)
+		// make sure there is padding so that points near the edge aren't cut off
+		chartView.setExtraOffsets(left: 30, top: 0, right: 30, bottom: 0)
     chartView.dragEnabled = true
+		chartView.setDragOffsetX(0)
     
   }
   
